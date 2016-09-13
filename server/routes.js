@@ -9,6 +9,7 @@ import path from 'path';
 
 export default function(app) {
   // Insert routes below
+  app.use('/api/videos', require('./api/videos'));
   app.use('/api/sessions', require('./api/sessions'));
   app.use('/api/things', require('./api/thing'));
   app.use('/api/users', require('./api/user'));
@@ -22,6 +23,6 @@ export default function(app) {
   // All other routes should redirect to the index.html
   app.route('/*')
     .get((req, res) => {
-      res.sendFile(path.resolve(app.get('appPath') + '/index.html'));
+      res.sendFile(path.resolve(`${app.get('appPath')}'/index.html`));
     });
 }
