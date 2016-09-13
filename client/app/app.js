@@ -26,11 +26,12 @@ import main from './main/main.component';
 import constants from './app.constants';
 import util from '../components/util/util.module';
 import socket from '../components/socket/socket.service';
+import videoPlayer from './components/video-player/video-player.component';
 
 import './app.scss';
 
 angular.module('partymakerApp', [ngCookies, ngResource, ngSanitize, 'btford.socket-io', uiRouter,
-    uiBootstrap, _Auth, account, admin, navbar, footer, main, constants, socket, util
+    uiBootstrap, _Auth, account, admin, navbar, footer, main, constants, socket, util, videoPlayer
   ])
   .config(routeConfig)
   .run(function($rootScope, $location, Auth) {
