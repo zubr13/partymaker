@@ -7,6 +7,35 @@
 import Thing from '../api/thing/thing.model';
 import User from '../api/user/user.model';
 import Sessions from '../api/sessions/sessions.model';
+import Videos from '../api/videos/videos.model';
+
+Videos.find({}).remove()
+  .then(() => {
+    Videos.create({
+      name: 'Rick Roll',
+      author: 'Rick Astley',
+      url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+      comments: [{
+        author: 'Bogdan',
+        message: 'BEST VIDEO AS ALWAYS!'
+      }, {
+        author: 'Lucy',
+        message: 'Another shitty video, meh'
+      }]
+    }, {
+      name: 'MC Hammer - U Cant Touch This',
+      author: 'MC Hammer',
+      url: 'https://www.youtube.com/watch?v=otCpCn0l4Wo',
+      comments: [{
+        author: 'Bogdan',
+        message: 'BEST VIDEO AS ALWAYS!'
+      }, {
+        author: 'Lucy',
+        message: 'Another shitty video, meh'
+      }]
+    });
+  });
+
 
 Sessions.find({}).remove()
   .then(() => {
