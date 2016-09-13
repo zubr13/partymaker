@@ -3,15 +3,23 @@ const angular = require('angular');
 
 export class videoPlayerComponent {
   /*@ngInject*/
-  constructor() {
-    this.message = 'World';
+  constructor($state) {
+    this.$state = $state;
+  }
+
+  createSession(){
+    console.log('go');
+    this.$state.go('common-watch');
   }
 }
 
-export default angular.module('partymakerApp.video-player', [])
+export default angular.module('video-player', [])
+  .config(function($sceProvider) {
+    $sceProvider.enabled(false);
+  })
   .component('videoPlayer', {
     template: require('./video-player.component.html'),
-    bindings: { message: '<' },
+    bindings: {url: '@', mini: '<'},
     controller: videoPlayerComponent
   })
   .name;

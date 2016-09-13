@@ -22,16 +22,15 @@ import account from './account';
 import admin from './admin';
 import navbar from '../components/navbar/navbar.component';
 import footer from '../components/footer/footer.component';
-import main from './main/main.component';
+import index from './index/index.component';
 import constants from './app.constants';
 import util from '../components/util/util.module';
 import socket from '../components/socket/socket.service';
-import videoPlayer from './components/video-player/video-player.component';
 
 import './app.scss';
 
 angular.module('partymakerApp', [ngCookies, ngResource, ngSanitize, 'btford.socket-io', uiRouter,
-    uiBootstrap, _Auth, account, admin, navbar, footer, main, constants, socket, util, videoPlayer
+    uiBootstrap, _Auth, account, admin, navbar, footer, index, constants, socket, util
   ])
   .config(routeConfig)
   .run(function($rootScope, $location, Auth) {
