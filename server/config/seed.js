@@ -45,7 +45,27 @@ User.find({}).remove()
       provider: 'local',
       name: 'Test User',
       email: 'test@example.com',
-      password: 'test'
+      password: 'test',
+      videos: [{
+        url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+        score: 5,
+        comments: [{
+          message: 'HELLO'
+        },
+        {
+          message: 'HELLO AGAIN'
+        }]
+      }],
+      sessions: [{
+        url: 'uniq-url-test',
+        name: 'PARTY HARD',
+        videos: [
+          {
+            url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+            score: 5
+          }
+        ]
+      }]
     }, {
       provider: 'local',
       role: 'admin',
