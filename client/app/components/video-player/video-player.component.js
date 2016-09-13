@@ -3,13 +3,8 @@ const angular = require('angular');
 
 export class videoPlayerComponent {
   /*@ngInject*/
-  constructor($state) {
-    this.$state = $state;
-  }
-
-  createSession(){
-    console.log('go');
-    this.$state.go('common-watch');
+  constructor() {
+    
   }
 }
 

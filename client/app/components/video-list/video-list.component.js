@@ -4,8 +4,13 @@ import videoPlayer from './../video-player/video-player.component';
 
 export class videoListComponent {
   /*@ngInject*/
-  constructor() {
+  constructor($state) {
     this.message = 'World';
+    this.$state = $state;
+  }
+
+  createSession(){
+    this.$state.go('common-watch');
   }
 }
 
