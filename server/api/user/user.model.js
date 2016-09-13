@@ -38,7 +38,30 @@ var UserSchema = new Schema({
   facebook: {},
   twitter: {},
   google: {},
-  github: {}
+  github: {},
+  friends: [{
+    name: String
+  }],
+  videos: [{
+    url: String,
+    score: { type: Number, min: 1, max: 5},
+    comments: [{
+      date: { type: Date, default: Date.now },
+      message: String
+    }]
+  }],
+  sessions: [{
+    url: String,
+    name: String,
+    date: { type: Date, default: Date.now },
+    videos: [
+      {
+        url: String,
+        score: { type: Number, min: 1, max: 5},
+      }
+    ]
+  }
+  ]
 });
 
 /**

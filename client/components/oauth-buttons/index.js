@@ -8,6 +8,8 @@ export function OauthButtonsController($window) {
   };
 }
 
+OauthButtonsController.$inject = ['$window'];
+
 export default angular.module('partymakerApp.oauthButtons', [])
   .directive('oauthButtons', function() {
     return {
@@ -21,3 +23,4 @@ export default angular.module('partymakerApp.oauthButtons', [])
     };
   })
   .name;
+
