@@ -10,7 +10,7 @@ export class videoPlayerComponent {
 
 export default angular.module('partymakerApp.video-player', [])
   .component('videoPlayer', {
-    template: require('./video-player.component.htmlg'),
+    template: require('./video-player.component.html'),
     bindings: { message: '<' },
     controller: videoPlayerComponent
   })
