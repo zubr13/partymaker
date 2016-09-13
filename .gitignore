@@ -11,3 +11,4 @@ npm-debug.log
 coverage
 .vscode
 tsconfig.json
+jsconfig.json

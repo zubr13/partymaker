@@ -6,6 +6,44 @@
 'use strict';
 import Thing from '../api/thing/thing.model';
 import User from '../api/user/user.model';
+import Sessions from '../api/sessions/sessions.model';
+
+Sessions.find({}).remove()
+  .then(() => {
+    Sessions.create({
+      name: 'Sample session',
+      info: 'Just simple session for testing.',
+      members: [{
+        name: 'Andrey'
+      }, {
+        name: 'Lucy'
+      }, {
+        name: 'Bogdan'
+      }],
+      url: 'http://randomurl.com',
+      videos: [{
+        url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+        score: 5,
+        messages: [{
+          author: 'Bogdan',
+          message: 'BEST VIDEO EVER'
+        }, {
+          author: 'Lucy',
+          message: 'Meh, worst video EVER'
+        }]
+      }, {
+        url: 'https://www.youtube.com/watch?v=IxGvm6btP1A',
+        score: 5,
+        messages: [{
+          author: 'Bogdan',
+          message: 'OMG KANYE'
+        }, {
+          author: 'Andrey',
+          message: 'Wow nice ass!'
+        }]
+      }]
+    });
+  });
 
 Thing.find({}).remove()
   .then(() => {
