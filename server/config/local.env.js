@@ -9,11 +9,11 @@ module.exports = {
   DOMAIN: 'http://localhost:3000',
   SESSION_SECRET: 'partymaker-secret',
 
-  FACEBOOK_ID: 'app-id',
-  FACEBOOK_SECRET: 'secret',
+  FACEBOOK_ID: '157524328028332',
+  FACEBOOK_SECRET: 'cf07257811e67a01731a3a8855ba4b29',
 
-  TWITTER_ID: 'app-id',
-  TWITTER_SECRET: 'secret',
+  TWITTER_ID: 'WNxuLEX0slVpHBRhtiDFd2yMD',
+  TWITTER_SECRET: '2BPgIj0gBcf52Lzkkpz4GSa12yjZxL0rZ1CZOgfQV9DCivmlDp',
 
   GOOGLE_ID: '958291601200-5cocapig4a24jd15obj07tt7oet6e509.apps.googleusercontent.com',
   GOOGLE_SECRET: 'BMy4gy-gT5SgzrUuhxw9hSd-',
