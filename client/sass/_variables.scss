@@ -1,0 +1,59 @@
+//colors
+$gray-blue: #6b757d; //text color and icons dark background
+$gray-light: #919191; //text color light background
+$gray: #777777; //navbar text color
+$gray-dark :#495254; //text color main dark background
+$red: #ec2828; //button color
+$red-dark: #bd1a20; //fail color
+$green: #7fb621; //success color
+$blue: #5984b2; //name color
+$black-dark: #1c2022; //darker background
+$black: #272c2e; //background
+$black-light: #2a3134; //lighter background
+
+// Fonts
+//<link href="https://fonts.googleapis.com/css?family=Cabin" rel="stylesheet">
+//<style>
+//@import 'https://fonts.googleapis.com/css?family=Cabin';
+//</style>
+$font-family-base:  'Cabin', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$font-size-small: 12px;
+$font-size-base: 14px;
+$font-size-base-big: 16px;
+$font-size-base-bigger: 18px;
+
+// Borders
+$border-thin-light: 1px solid $gray-light;
+$border-thin-regular: 1px solid $gray;
+
+// Shadows
+$shadow-light: 0px 1px 7px 0px rgba(0, 0, 0, 0.07);
+
+// Dimensions
+$size-base: 100px;
+$size-big: 250px;
+$size-bigger: 450px;
+$width-full: 100%;
+$space-base: 20px;
+$space-small: 10px;
+$space-big: 40px;
+$padding-inside-form: 40px 15%;
+$padding-inside-input: 10px 5px 10px 5px;
+$btn-margin: 20px 0 10px 0;
+$btn-padding: 10px 30px 10px 30px;
+$btn-width: 100px;
+
+// Transitions
+$transition-ease-fast: 0.1s ease;
+$transition-ease-normal: 0.2s ease;
+
+// Overlay
+$opacity-normal: 0.7;
+
+//Mixins
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  -ms-border-radius: $radius;
+  border-radius: $radius;
+}

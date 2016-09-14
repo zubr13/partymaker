@@ -1,0 +1,36 @@
+@import '../../../sass/variables';
+
+video-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  #video-labels{
+    margin-bottom: 10px;
+  }
+
+  .common-watch, .share {
+    background-color: $black;
+    color: $gray-blue;
+    font-weight: bold;
+    font-size: $font-size-base-big;
+    border: none;
+    &:hover {
+      color: $gray-dark;
+    }
+    &:hover .svg path {
+      fill: $gray-dark;
+    }
+    svg {
+      width: 25px;
+      height: 25px;
+    }
+  }
+  //.common-watch{
+  //  background-image: url('../../../images/stick-man.svg');
+  //}
+  //.share{
+  //  background-image: url('../../../images/share.svg');
+  //}
+}
