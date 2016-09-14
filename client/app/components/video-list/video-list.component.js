@@ -4,14 +4,16 @@ import videoPlayer from './../video-player/video-player.component';
 
 export class videoListComponent {
   /*@ngInject*/
-  constructor($state) {
+  constructor() {
     this.message = 'World';
-    this.$state = $state;
+    //this.$state = $state;
+    this.sessionNumber = Math.floor(Math.random() * 10);
   }
 
-  createSession(){
-    this.$state.go('common-watch');
-  }
+  // createSession(){
+  //   this.sessionNumber = 3;
+  //   this.$state.go(`common-watch/${this.sessionNumber}`);
+  // }
 }
 
 export default angular.module('video-list', [videoPlayer])
