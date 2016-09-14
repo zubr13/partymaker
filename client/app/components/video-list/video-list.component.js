@@ -6,16 +6,71 @@ export class videoListComponent {
   /*@ngInject*/
   constructor() {
     this.message = 'World';
-    //this.$state = $state;
     this.sessionNumber = Math.floor(Math.random() * 10);
+    this.sharedUrl = '';
+    this.videos = [
+      {
+        id: 1,
+        name: 'Video',
+        author: 'Author',
+        youtube: 'http://www.youtube.com/embed/M7lc1UVf-VE?enablejsapi=1&origin=http://example.com',
+        url: "http://localhost:3000/video/1"
+      },
+      {
+        id: 2,
+        name: 'Video',
+        author: 'Author',
+        youtube: 'http://www.youtube.com/embed/M7lc1UVf-VE?enablejsapi=1&origin=http://example.com',
+        url: "http://localhost:3000/video/2"
+      },
+      {
+        id: 3,
+        name: 'Video',
+        author: 'Author',
+        youtube: 'http://www.youtube.com/embed/M7lc1UVf-VE?enablejsapi=1&origin=http://example.com',
+        url: "http://localhost:3000/video/3"
+      },
+      {
+        id: 4,
+        name: 'Video',
+        author: 'Author',
+        youtube: 'http://www.youtube.com/embed/M7lc1UVf-VE?enablejsapi=1&origin=http://example.com',
+        url: "http://localhost:3000/video/4"
+      },
+      {
+        id: 5,
+        name: 'Video',
+        author: 'Author',
+        youtube: 'http://www.youtube.com/embed/M7lc1UVf-VE?enablejsapi=1&origin=http://example.com',
+        url: "http://localhost:3000/video/5"
+      },
+      {
+        id: 6,
+        name: 'Video',
+        author: 'Author',
+        youtube: 'http://www.youtube.com/embed/M7lc1UVf-VE?enablejsapi=1&origin=http://example.com',
+        url: "http://localhost:3000/video/6"
+      },
+      {
+        id: 7,
+        name: 'Video',
+        author: 'Author',
+        youtube: 'http://www.youtube.com/embed/M7lc1UVf-VE?enablejsapi=1&origin=http://example.com',
+        url: "http://localhost:3000/video/7"
+      },
+      {
+        id: 8,
+        name: 'Video',
+        author: 'Author',
+        youtube: 'http://www.youtube.com/embed/M7lc1UVf-VE?enablejsapi=1&origin=http://example.com',
+        url: "http://localhost:3000/video/8"
+      }
+    ];
   }
-
-  // createSession(){
-  //   this.sessionNumber = 3;
-  //   this.$state.go(`common-watch/${this.sessionNumber}`);
-  // }
+  shareVideo(url){
+    this.sharedUrl = url;
+  }
 }
-
 export default angular.module('video-list', [videoPlayer])
   .component('videoList', {
     template: require('./video-list.component.html'),

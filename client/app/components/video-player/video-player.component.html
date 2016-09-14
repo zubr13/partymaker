@@ -1,5 +1,6 @@
 <div class="video-player">
   <iframe ng-class="{'mini-player': $ctrl.mini, player: !$ctrl.mini}" id="player" type="text/html"
-          ng-src="{{$ctrl.url}}"
+          ng-src="{{$ctrl.youtube}}"
           frameborder="0""></iframe>
 </div>
+<div ng-show="$ctrl.share">{{$ctrl.url}}</div>
