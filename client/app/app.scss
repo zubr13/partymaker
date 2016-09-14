@@ -3,12 +3,59 @@ $icon-font-path: '/assets/fonts/bootstrap/';
 @import '~bootstrap-social/bootstrap-social.scss';
 $fa-font-path: '/assets/fonts/font-awesome/';
 @import '~font-awesome/scss/font-awesome';
-
-// @import url(http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,900|Roboto:300,500,700,900);
+@import '../sass/variables';
+@import url(https://fonts.googleapis.com/css?family=Cabin);
 
 /**
  * App-wide Styles
  */
+
+body {
+  font-family: $font-family-base;
+  font-size: $font-size-base-bigger;
+  color: $gray;
+}
+
+.navbar-default {
+  height: 70px;
+  background-color: white;
+  border: $border-thin-light;
+  .navbar-brand {
+    padding: 10px 15px 15px 15px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    &:hover #brand{
+      color: $black;
+    }
+    &:hover #logo{
+      opacity: 0.7;
+    }
+  }
+  #logo {
+    width: 50px;
+    height: 50px;
+  }
+  #brand{
+    width: 50px;
+    height: 50px;
+    font-weight: bold;
+    font-size: $font-size-base-bigger;
+    margin-left: 5px;
+    margin-top: 5px;
+  }
+  .navbar-nav {
+    height: 70px;
+    li {
+      a {
+        height: 70px;
+        color: $gray;
+        padding: 20px;
+        font-weight: bold;
+      }
+    }
+  }
+}
 
 .browserupgrade {
   margin: 0.2em 0;
