@@ -75,6 +75,7 @@ export class videoListComponent {
     ];
   }
   shareVideo(url){
+    console.log(url);
     this.sharedUrl = url;
   }
 }
