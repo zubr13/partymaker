@@ -1,4 +1,25 @@
-<video-player class="text-center col-xs-12" id="video-player"
-              youtube="{{videoCtrl.video.youtube}}" mini="false">
-              
-</video-player>
+<div class="container">
+  <div class="col-xs-12 col-sm-offset-2 col-sm-8">
+    <video-player id="video-player" class="text-center"
+                  youtube="{{videoCtrl.video.youtube}}" mini="false">
+
+    </video-player>
+    <div class="rating-block col-xs-12">
+      <div class="col-sm-4 col-xs-6">
+        <span class="video-name">Video name</span>
+      </div>
+      <div class="col-sm-3 col-xs-6 text-right">
+        <span class="video-name">Rating X</span>
+      </div>
+      <div class="col-sm-5 col-xs-12 text-right">
+      <span class="rating">Vote &nbsp;
+        <span id="rating-stars" uib-rating ng-model="videoCtrl.rate" max="videoCtrl.max"
+              read-only="videoCtrl.isReadonly" on-leave="overStar = null" titles="['one','two','three']"
+              aria-labelledby="default-rating">
+        </span>
+      </span>
+      </div>
+    </div>
+    <comments-block class="col-xs-12" id="comments"></comments-block>
+  </div>
+</div>
