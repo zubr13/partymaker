@@ -3,8 +3,11 @@
     <div class="col-sm-12 text-center col-xs-12">
       <h1>Login</h1>
       <br>
-      <!--<p>Accounts are reset on server restart from <code>server/config/seed.js</code>. Default account is <code>test@example.com</code> / <code>test</code></p>-->
-      <!--<p>Admin account is <code>admin@example.com</code> / <code>admin</code></p>-->
+      <!--<div class="info">-->
+        <!--&lt;!&ndash;<p>Accounts are reset on server restart from <code>server/config/seed.js</code></p>&ndash;&gt;-->
+        <!--&lt;!&ndash;<p>Default account is <code>test@example.com</code> / <code>test</code></p>&ndash;&gt;-->
+        <!--&lt;!&ndash;<p>Admin account is <code>admin@example.com</code> / <code>admin</code></p>&ndash;&gt;-->
+      <!--</div>-->
     </div>
     <div class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-offset-4 col-md-4 text-center">
       <form class="form" name="form" ng-submit="vm.login(form)" novalidate>
@@ -23,10 +26,10 @@
 
         <div class="form-group has-error">
           <p class="help-block" ng-show="form.email.$error.required && form.password.$error.required && vm.submitted">
-             Please enter your email and password.
+            Please enter your email and password.
           </p>
           <p class="help-block" ng-show="form.email.$error.email && vm.submitted">
-             Please enter a valid email.
+            Please enter a valid email.
           </p>
 
           <p class="help-block">{{ vm.errors.login }}</p>
@@ -42,7 +45,7 @@
         </div>
 
         <div class="social">
-            <oauth-buttons></oauth-buttons>
+          <oauth-buttons></oauth-buttons>
         </div>
       </form>
     </div>
