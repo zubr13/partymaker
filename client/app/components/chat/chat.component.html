@@ -1,9 +1,11 @@
 <div class="chat">
-	<h1>Chat</h1>
-	<div class="message" ng-repeat="message in $ctrl.messages">
-		<span class="name">{{message.author}}</span>&nbsp;<span class="date">{{message.date}}</span>
-		<p class="message">{{message.message}}</p>
-	</div>
-  <input class="input-message"  type="text" value="Message">
+  <h1>Chat</h1>
+  <div class="message" ng-repeat="message in $ctrl.messages">
+    <span class="name">{{message.author}}</span>&nbsp;<span class="date">{{message.date}}</span>
+    <p class="message">{{message.message}}</p>
+  </div>
+</div>
+<div class="inner">
+  <input class="input-message" type="text" value="Message">
 </div>
 
