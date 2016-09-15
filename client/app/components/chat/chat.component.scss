@@ -2,12 +2,14 @@
 
 chat{
   background-color: $gray-blue;
+  padding-top: 20px;
+  box-sizing: border-box;
 }
 .chat {
   color: $gray-light;
   padding: 0;
   position: relative;
-  height: 505px;
+  height: 485px;
 
 
   h1 {
@@ -33,6 +35,7 @@ chat{
     padding: 5px;
     width: 100%;
   }
+
   input:-webkit-autofill {
     -webkit-box-shadow: 0 0 0 1000px $gray-blue inset;
   }

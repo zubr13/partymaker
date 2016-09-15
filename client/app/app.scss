@@ -99,6 +99,10 @@ a.btn-social:hover{
   text-align: center;
 }
 
+.info{
+  font-size: $font-size-small;
+}
+
 // Component styles are injected through gulp
 /* inject:scss */
 @import 'admin/admin';
