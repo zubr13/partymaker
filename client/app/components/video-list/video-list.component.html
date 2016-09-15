@@ -2,7 +2,17 @@
   <video-player youtube="{{video.youtube}}"
                 mini="true" share="video.url === $ctrl.sharedUrl" url="video.url"></video-player>
   <div class="text-center" id="video-labels">
-    <button ui-sref="video({id: video.id})">See</button>
+
+    <button ui-sref="video({id: video.id})" class="common-watch">
+      <svg class="svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 489.3 489.3" style="enable-background:new 0 0 489.3 489.3;" xml:space="preserve" width="512px" height="512px">
+	<g>
+		<path d="M181.95,62.7c0,34.6,28.1,62.7,62.7,62.7s62.7-28.1,62.7-62.7S279.25,0,244.65,0S181.95,28.1,181.95,62.7z M244.65,24.5    c21.1,0,38.2,17.1,38.2,38.2s-17.1,38.2-38.2,38.2s-38.2-17.1-38.2-38.2S223.55,24.5,244.65,24.5z" fill="#6b757d"/>
+		<path d="M196.25,138.5c-34.3,0-62.2,27.9-62.2,62.2v79.7c0,23,12.9,44,32.8,54.7v104.7c0,27.3,22.2,49.5,49.5,49.5h56.6    c27.3,0,49.5-22.2,49.5-49.5V335c19.9-10.7,32.8-31.7,32.8-54.7v-79.7c0-34.3-27.9-62.2-62.2-62.2h-96.8V138.5z M330.75,200.6    v79.7c0,15.7-9.9,29.9-24.7,35.3c-4.8,1.8-8,6.4-8,11.5v112.6c0,13.8-11.2,25-25,25h-56.6c-13.8,0-25-11.2-25-25V327.2    c0-5.1-3.2-9.7-8-11.5c-14.8-5.4-24.7-19.6-24.7-35.3v-79.8c0-20.8,16.9-37.7,37.7-37.7h96.8    C313.85,163,330.75,179.9,330.75,200.6z" fill="#6b757d"/>
+	</g>
+  </g>
+        </svg>
+      &nbsp;Watch
+    </button>
     <button ui-sref="common-watch({id: $ctrl.sessionNumber})" ng-click="$ctrl.goToVideo(video)" class="common-watch">
       <svg  class="svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 489.6 489.6" style="enable-background:new 0 0 489.6 489.6;" xml:space="preserve" width="512px" height="512px">
 	<g>
@@ -14,7 +24,7 @@
 		<path d="M81,485.15h55.6c6.8,0,12.3-5.5,12.3-12.3s-5.5-12.3-12.3-12.3H81c-13.4,0-24.3-10.9-24.3-24.3v-110.5    c0-5.1-3.2-9.7-8-11.5c-14.4-5.3-24.1-19.1-24.1-34.5v-78.3c0-20.3,16.5-36.8,36.8-36.8h52.4c6.8,0,12.3-5.5,12.3-12.3    s-5.5-12.3-12.3-12.3H61.3c-33.8,0-61.3,27.5-61.3,61.3v78.3c0,22.6,12.6,43.3,32.2,53.9v102.7C32.2,463.25,54.1,485.15,81,485.15    z" fill="#6b757d"/>
 	</g>
       </svg>
-      &nbsp;Common watch
+      &nbsp;Co-viewing
     </button>
     <button ng-click="$ctrl.shareVideo(video.url)" class="share">
       <svg class="svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 490.009 490.009" style="enable-background:new 0 0 490.009 490.009;" xml:space="preserve" width="512px" height="512px">

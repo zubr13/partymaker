@@ -9,6 +9,9 @@ import videoList from './../components/video-list/video-list.component';
 export class VideoComponent {
   /*@ngInject*/
   constructor(videoService, $stateParams) {
+    this.rate = 4;
+    this.max = 5;
+    this.isReadonly = false;
     this.video = videoService.getVideoById($stateParams.id);
     console.log(this.video);
   }
