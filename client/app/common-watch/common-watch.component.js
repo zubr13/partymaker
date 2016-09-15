@@ -12,17 +12,21 @@ import routes from './common-watch.routes';
 import videoList from './../components/video-list/video-list.component';
 import commentsBlock from './../components/comments-block/comments-block.component';
 import chat from './../components/chat/chat.component';
+import videoService from './../video-service/video-service.service';
 
 export class CommonWatchComponent {
   /*@ngInject*/
-  constructor() {
+  constructor(videoService) {
     this.rate = 4;
     this.max = 5;
     this.isReadonly = false;
+    this.currentVideo = videoService.currentVideo;
   }
 }
 
-export default angular.module('partymakerApp.common-watch', [uiBootstrap, uiRouter, animate, sanitize, videoList, commentsBlock, chat])
+CommonWatchComponent.$inject = ['videoService'];
+
+export default angular.module('partymakerApp.common-watch', [uiBootstrap, uiRouter, animate, sanitize, videoList, commentsBlock, chat, videoService])
   .config(routes)
   .component('commonWatch', {
     template: require('./common-watch.html'),

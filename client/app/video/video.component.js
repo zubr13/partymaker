@@ -8,14 +8,17 @@ import videoList from './../components/video-list/video-list.component';
 
 export class VideoComponent {
   /*@ngInject*/
-  constructor() {
-    this.message = 'Hello';
+  constructor(videoService, $stateParams) {
+    this.video = videoService.getVideoById($stateParams.id);
+    console.log(this.video);
   }
 }
 
+VideoComponent.$inject = ['videoService', '$stateParams'];
+
 export default angular.module('partymakerApp.video', [uiRouter, videoList])
   .config(routes)
-  .component('video', {
+  .component('videoElement', {
     template: require('./video.html'),
     controller: VideoComponent,
     controllerAs: 'videoCtrl'

@@ -5,6 +5,6 @@ export default function($stateProvider) {
   $stateProvider
     .state('video', {
       url: '/video/:id',
-      template: '<video></video>'
+      template: '<video-element></video-element>'
     });
 }
