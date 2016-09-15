@@ -1,12 +1,22 @@
 <div class="container">
   <chat class="col-xs-12 col-sm-3" id="chat"></chat>
   <div id="video-block" class="col-sm-9 col-xs-12">
-    <video-player class="text-center" id="video-player"
-                  url="http://www.youtube.com/embed/M7lc1UVf-VE?enablejsapi=1&origin=http://example.com"
+    <video-player class="text-center col-xs-12" id="video-player"
+
                   mini="false"></video-player>
-    <div class="rating-block text-right">
-      <span class="rating">Rating</span>
+    <div class="rating-block col-xs-12">
+      <div class="text-left col-sm-6 col-xs-12">
+        <span class="video-name">Video name</span>
+      </div>
+      <div class="text-right col-sm-6 col-xs-12">
+      <span class="rating">Vote &nbsp;
+        <span id="rating-stars" uib-rating ng-model="commonWatchCtrl.rate" max="commonWatchCtrl.max"
+              read-only="commonWatchCtrl.isReadonly" on-leave="overStar = null" titles="['one','two','three']"
+              aria-labelledby="default-rating">
+        </span>
+      </span>
+      </div>
     </div>
+    <comments-block class="col-xs-12" id="comments"></comments-block>
   </div>
-  <comments-block class="col-xs-12 col-sm-offset-3 col-sm-9" id="comments"></comments-block>
 </div>

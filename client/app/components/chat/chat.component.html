@@ -1,8 +1,9 @@
 <div class="chat">
 	<h1>Chat</h1>
 	<div class="message" ng-repeat="message in $ctrl.messages">
-		<span>{{message.author}}</span>
-		<span>{{message.message}}</span>
-		<span>{{message.date}}</span>
+		<span class="name">{{message.author}}</span>&nbsp;<span class="date">{{message.date}}</span>
+		<p class="message">{{message.message}}</p>
 	</div>
+  <input class="input-message" type="text">
 </div>
+
