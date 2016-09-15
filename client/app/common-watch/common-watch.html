@@ -1,4 +1,12 @@
-<video-player youtube="http://www.youtube.com/embed/M7lc1UVf-VE?enablejsapi=1&origin=http://example.com" mini="false"></video-player>
-<button>Grade with stars</button>
-<chat></chat>
-<comments-block></comments-block>
+<div class="container">
+  <chat class="col-xs-12 col-sm-3" id="chat"></chat>
+  <div id="video-block" class="col-sm-9 col-xs-12">
+    <video-player class="text-center" id="video-player"
+                  url="http://www.youtube.com/embed/M7lc1UVf-VE?enablejsapi=1&origin=http://example.com"
+                  mini="false"></video-player>
+    <div class="rating-block text-right">
+      <span class="rating">Rating</span>
+    </div>
+  </div>
+  <comments-block class="col-xs-12 col-sm-offset-3 col-sm-9" id="comments"></comments-block>
+</div>

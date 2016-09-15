@@ -1,3 +1,32 @@
-.comment{
-	margin: 20px;
+@import '../../../sass/variables';
+
+comments-block{
+  background-color: white;
+  color: $black-dark;
+  font-size: $font-size-base;
+  .comments-block{
+    padding: 50px;
+  }
+  .comment{
+    margin: 20px;
+    #name{
+      color: $blue;
+      font-size: $font-size-base-bigger;
+      font-weight: normal;
+    }
+    #date{
+      color: $gray-light;
+      margin-left: 10px;
+      font-size: $font-size-base;
+      font-weight: normal;
+    }
+    #message{
+      color: $black-dark;
+      font-size: $font-size-base;
+      font-weight: normal;
+      margin-top: 5px;
+    }
+  }
 }
+
+

@@ -4,10 +4,16 @@ video-list {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-around;
+  margin-top: 10px;
+
+  #player{
+    margin-top: 10px;
+  }
 
   #video-labels{
     margin-bottom: 10px;
+    margin-top: 5px;
   }
 
   .common-watch, .share {
@@ -16,6 +22,7 @@ video-list {
     font-weight: bold;
     font-size: $font-size-base-big;
     border: none;
+    outline: 0;
     &:hover {
       color: $gray-dark;
     }
