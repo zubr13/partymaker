@@ -5,6 +5,7 @@ const uiRouter = require('angular-ui-router');
 
 import routes from './video.routes';
 import videoList from './../components/video-list/video-list.component';
+import singleVideoPlayer from './../components/single-video-player/single-video-player.component';
 
 export class VideoComponent {
   /*@ngInject*/
@@ -13,13 +14,12 @@ export class VideoComponent {
     this.max = 5;
     this.isReadonly = false;
     this.video = videoService.getVideoById($stateParams.id);
-    console.log(this.video);
   }
 }
 
 VideoComponent.$inject = ['videoService', '$stateParams'];
 
-export default angular.module('partymakerApp.video', [uiRouter, videoList])
+export default angular.module('partymakerApp.video', [uiRouter, videoList, singleVideoPlayer])
   .config(routes)
   .component('videoElement', {
     template: require('./video.html'),

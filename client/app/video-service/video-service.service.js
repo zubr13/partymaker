@@ -5,6 +5,7 @@ const angular = require('angular');
 export function videoServiceService() {
 	// AngularJS will instantiate a singleton by calling "new" on this function
   this.currentVideo = {};
+  this.currentPlayMode = "";
 	 this.videos = [
       {
         id: 1,

@@ -8,6 +8,7 @@ const sanitize = require('angular-sanitize');
 
 
 
+import singleVideoPlayer from './../components/single-video-player/single-video-player.component';
 import routes from './common-watch.routes';
 import videoList from './../components/video-list/video-list.component';
 import commentsBlock from './../components/comments-block/comments-block.component';
@@ -26,7 +27,7 @@ export class CommonWatchComponent {
 
 CommonWatchComponent.$inject = ['videoService'];
 
-export default angular.module('partymakerApp.common-watch', [uiBootstrap, uiRouter, animate, sanitize, videoList, commentsBlock, chat, videoService])
+export default angular.module('partymakerApp.common-watch', [uiBootstrap, uiRouter, animate, sanitize, singleVideoPlayer, videoList, commentsBlock, chat, videoService])
   .config(routes)
   .component('commonWatch', {
     template: require('./common-watch.html'),
