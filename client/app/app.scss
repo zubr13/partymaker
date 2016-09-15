@@ -13,11 +13,27 @@ $fa-font-path: '/assets/fonts/font-awesome/';
 body {
   font-family: $font-family-base;
   font-size: $font-size-base-bigger;
-  color: $gray;
+  color: $gray-light;
+}
+
+input, button {
+  outline: 0;
+}
+
+.nav {
+  .li-item {
+    height: 70px;
+    color: $gray;
+    padding: 9px 25px;
+    font-weight: bold;
+  }
+}
+
+.navbar {
+  margin-bottom: 0;
 }
 
 .navbar-default {
-  height: 70px;
   background-color: white;
   border: $border-thin-light;
   .navbar-brand {
@@ -25,10 +41,10 @@ body {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
-    &:hover #brand{
+    &:hover #brand {
       color: $black;
     }
-    &:hover #logo{
+    &:hover #logo {
       opacity: 0.7;
     }
   }
@@ -36,7 +52,7 @@ body {
     width: 50px;
     height: 50px;
   }
-  #brand{
+  #brand {
     width: 50px;
     height: 50px;
     font-weight: bold;
@@ -45,16 +61,26 @@ body {
     margin-top: 5px;
   }
   .navbar-nav {
-    height: 70px;
     li {
       a {
         height: 70px;
         color: $gray;
-        padding: 20px;
+        padding: 25px;
         font-weight: bold;
       }
     }
   }
+  .navbar-collapse {
+    border: none;
+  }
+  .navbar-header {
+    height: 70px;
+  }
+}
+
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+  background-color: $red;
+  color: white;
 }
 
 .browserupgrade {
@@ -62,6 +88,15 @@ body {
   background: #ccc;
   color: #000;
   padding: 0.2em 0;
+}
+
+a.btn-social:hover{
+  color: $gray;
+}
+
+.social {
+  margin-top: 30px;
+  text-align: center;
 }
 
 // Component styles are injected through gulp
