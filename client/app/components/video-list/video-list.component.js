@@ -64,6 +64,13 @@ export class videoListComponent {
         author: 'Author',
         youtube: 'http://www.youtube.com/embed/M7lc1UVf-VE?enablejsapi=1&origin=http://example.com',
         url: "http://localhost:3000/video/8"
+      },
+      {
+        id: 9,
+        name: 'Video',
+        author: 'Author',
+        youtube: 'http://www.youtube.com/embed/M7lc1UVf-VE?enablejsapi=1&origin=http://example.com',
+        url: "http://localhost:3000/video/9"
       }
     ];
   }
