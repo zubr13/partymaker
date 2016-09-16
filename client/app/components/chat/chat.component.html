@@ -1,4 +1,4 @@
-<div class="chat">
+<div id="chat-block" class="chat">
   <h1>Chat</h1>
   <div class="message" ng-repeat="message in $ctrl.messages">
     <span class="name">{{message.author}}</span>&nbsp;<span class="date">{{message.date}}</span>
@@ -6,6 +6,7 @@
   </div>
 </div>
 <div class="inner">
-  <input class="input-message" type="text" value="Message">
+  <input ng-model="$ctrl.messageValue" id="player-chat" class="input-message" type="text" placeholder="Message">
+  <button id="send-message" ng-click="$ctrl.sendMessage()">Send</button>
 </div>
 
