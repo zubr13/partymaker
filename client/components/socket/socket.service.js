@@ -6,6 +6,7 @@ import io from 'socket.io-client';
 
 function Socket(socketFactory) {
   // socket.io now auto-configures its connection when we ommit a connection url
+
   var ioSocket = io('', {
     // Send auth token on connection, you will need to DI the Auth service above
     // 'query': 'token=' + Auth.getToken()
@@ -31,7 +32,6 @@ function Socket(socketFactory) {
      */
     syncUpdates(modelName, array, cb) {
       cb = cb || angular.noop;
-
       /**
        * Syncs item creation/updates on 'model:save'
        */
@@ -78,6 +78,8 @@ function Socket(socketFactory) {
   };
 }
 
+Socket.$inject = ['socketFactory'];
+
 export default angular.module('partymakerApp.socket', [])
-  .factory('socket', Socket)
+  .factory('socketService', Socket)
   .name;

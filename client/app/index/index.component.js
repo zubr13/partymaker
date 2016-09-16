@@ -11,7 +11,7 @@ import video from './../video/video.component';
 export class IndexComponent {
   /*@ngInject*/
   constructor() {
-    this.message = 'Hello';
+    
   }
 }
 

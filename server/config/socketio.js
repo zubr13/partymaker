@@ -52,6 +52,10 @@ export default function(socketio) {
       socket.log('DISCONNECTED');
     });
 
+    socket.on('chat message', function(msg){
+      socketio.emit('chat message', msg);
+    });
+
     // Call onConnect.
     onConnect(socket);
     socket.log('CONNECTED');

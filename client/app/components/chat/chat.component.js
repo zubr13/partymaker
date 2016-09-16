@@ -3,19 +3,19 @@ const angular = require('angular');
 
 export class chatComponent {
   /*@ngInject*/
-  constructor() {
-    this.messages = [
-      {date: "12-14-14", author: "Vasya Pupkin", message: "Cool"},
-      {date: "12-14-14", author: "Vasya Pupkin", message: "Cool"},
-      {date: "12-14-14", author: "Vasya Pupkin", message: "Cool"},
-      {date: "12-14-14", author: "Vasya Pupkin", message: "Cool"},
-      {date: "12-14-14", author: "Vasya Pupkin", message: "Cool"},
-      {date: "12-14-14", author: "Vasya Pupkin", message: "Cool"},
-      {date: "12-14-14", author: "Vasya Pupkin", message: "Cool"},
-      {date: "12-14-14", author: "Vasya Pupkin", message: "Cool"},
-      {date: "12-14-14", author: "Vasya Pupkin", message: "Cool"},
-      {date: "12-14-14", author: "Vasya Pupkin", message: "Cool"}
-    ];
+  constructor(socketService) {
+    this.messages = [];
+    
+    this.socket = socketService.socket;
+
+    this.socket.on('chat message', (msg) => {
+        this.messages.push({date: "12-14-14", author: "Petya", message: msg});
+    });
+  }
+
+  sendMessage(){
+    this.socket.emit('chat message', this.messageValue);
+    this.messageValue = '';
   }
 }
 
