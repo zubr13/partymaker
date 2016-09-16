@@ -2,7 +2,7 @@
 const angular = require('angular');
 
 /*@ngInject*/
-export function videoServiceService() {
+export function videoServiceService($http) {
 	// AngularJS will instantiate a singleton by calling "new" on this function
   this.currentVideo = {};
   this.currentPlayMode = "";
@@ -78,6 +78,16 @@ export function videoServiceService() {
           return this.videos[i];
         }
       }
+    }
+
+    this.saveVideo = function(id){
+      $http.put(`http://localhost:3000/api/sessions/${id}/addcomment`).then((response) => {
+        console.log(response.data);
+      });
+    }
+
+    this.createSession = function(){
+      return $http.post('http://localhost:3000/api/sessions').then((response) => response.data);
     }
 }
 
