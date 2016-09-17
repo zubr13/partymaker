@@ -7,7 +7,7 @@
  * PATCH   /api/sessions/:id          ->  patch
  * DELETE  /api/sessions/:id          ->  destroy
  * CUSTOM *****************************************
- * addComment /api/sessions/:id/addComment -> addComment to session
+ * addMessage /api/sessions/:id/addmessage -> addMessage to session
  */
 
 'use strict';
@@ -98,9 +98,8 @@ export function upsert(req, res) {
     .catch(handleError(res));
 }
 
-// addComment to session
-export function addComment(req, res) {
-  console.log(req.params)
+// addMessage to session
+export function addMessage(req, res) {
   if(req.body._id) {
     delete req.body._id;
   }
