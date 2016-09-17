@@ -12,14 +12,15 @@ export function videoServiceService($http) {
       return $http.get(`http://localhost:3000/api/videos/${id}`).then(response => response.data);
     }
 
-    this.saveMessage = function(id){
-      $http.put(`http://localhost:3000/api/sessions/${id}/addcomment`).then((response) => {
+    this.saveMessage = function(id, message){
+      $http.put(`http://localhost:3000/api/sessions/${id}/addcomment`, message).then((response) => {
         console.log(response.data);
       });
     }
 
-    this.createSession = function(){
-      return $http.post('http://localhost:3000/api/sessions').then((response) => response.data);
+    this.createSession = function(data){
+      return $http.post('http://localhost:3000/api/sessions',
+       { video: {name: data.name, youtube: data.youtube, score: 1}}).then((response) => response.data);
     }
 
     this.getVideos = function(){

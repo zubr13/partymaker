@@ -12,6 +12,7 @@ var SessionsSchema = new Schema({
   }],
   url: String,
   video: {
+    name: String,
     youtube: String,
     score: { type: Number, min: 1, max: 5 },
   },
@@ -21,6 +22,7 @@ var SessionsSchema = new Schema({
     message: String
   }]
 });
+
 
 /**
  * Virtuals
@@ -45,5 +47,22 @@ SessionsSchema
 
 // Validate url
 
+SessionsSchema
+  .path('url')
+  .validate(function(value, respond) {
+    return this.constructor.findOne({ url: value }).exec()
+      .then(session => {
+        if(session) {
+          if(this.id === session.id) {
+            return respond(true);
+          }
+          return respond(false);
+        }
+        return respond(true);
+      })
+      .catch(function(err) {
+        throw err;
+      });
+  }, 'This url already exist!');
 
 export default mongoose.model('Sessions', SessionsSchema);
