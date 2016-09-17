@@ -121,21 +121,16 @@ Sessions.find({}).remove()
   .then(() => {
     Sessions.create({
       name: 'Sample session',
+      creator: 'Admin',
       info: 'Just simple session for testing.',
-      members: [{
-        name: 'Andrey'
-      }, {
-        name: 'Lucy'
-      }, {
-        name: 'Bogdan'
-      }],
+      members: ['Admin', 'Andrey', 'Lucy'],
       url: 'http://randomurl.com',
       video: {
-        name: "JavaScript tutorial",
+        name: 'JavaScript tutorial',
         youtube: 'http://www.youtube.com/embed/sWOXYDBbz0g',
         score: 5
       },
-      chat:[{
+      chat: [{
         author: 'Bogdan',
         message: 'BEST VIDEO EVER'
       }, {
