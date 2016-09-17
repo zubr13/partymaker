@@ -53,12 +53,12 @@ export function create(req, res) {
 export function show(req, res, next) {
   var userId = req.params.id;
 
-  return User.findById(userId).exec()
+  return User.findOne({ name: userId }).exec()
     .then(user => {
       if(!user) {
         return res.status(404).end();
       }
-      res.json(user.profile);
+      res.json(user);
     })
     .catch(err => next(err));
 }

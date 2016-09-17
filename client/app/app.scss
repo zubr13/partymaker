@@ -123,10 +123,12 @@ body::-webkit-scrollbar-thumb {
 @import 'common-watch/common-watch';
 @import 'components/chat/chat.component';
 @import 'components/comments-block/comments-block.component';
+@import 'components/friends-list/friends-list.component';
 @import 'components/single-video-player/single-video-player.component';
 @import 'components/video-list/video-list.component';
 @import 'components/video-player/video-player.component';
 @import 'index/index';
+@import 'profile/profile';
 @import 'video/video';
 @import '../components/footer/footer';
 @import '../components/modal/modal';

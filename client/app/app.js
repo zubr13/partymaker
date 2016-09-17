@@ -28,11 +28,12 @@ import util from '../components/util/util.module';
 import socket from '../components/socket/socket.service';
 import videoService from './video-service/video-service.service';
 import profile from './profile/profile.component';
+import profileService from './profile/profile.service';
 
 import './app.scss';
 
 angular.module('partymakerApp', [ngCookies, ngResource, ngSanitize, 'btford.socket-io', uiRouter,
-    uiBootstrap, _Auth, account, admin, profile, navbar, footer, index, videoService, constants, socket, util
+    uiBootstrap, _Auth, account, admin, profile, profileService, navbar, footer, index, videoService, constants, socket, util
   ])
   .config(routeConfig)
   .run(function($rootScope, $location, Auth) {

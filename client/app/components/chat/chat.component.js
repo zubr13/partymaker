@@ -16,7 +16,7 @@ export class chatComponent {
 
   }
 
-  sendMessage(){
+  sendMessage() {
     this.socket.emit('chat message', {date: new Date(), message: this.messageValue, author: "Petya"});
     const message = this.messageValue;
     this.messageValue = '';
