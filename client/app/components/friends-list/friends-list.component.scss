@@ -1,0 +1,18 @@
+@import '../../../sass/variables';
+
+friends-list{
+  background-color: white;
+  color: $black-dark;
+  font-size: $font-size-base;
+  .friends-list{
+    padding: 50px;
+  }
+  .friend{
+    margin: 20px;
+    #name{
+      color: $blue;
+      font-size: $font-size-base-bigger;
+      font-weight: normal;
+    }
+  }
+}

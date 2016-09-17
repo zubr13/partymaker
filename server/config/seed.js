@@ -181,9 +181,10 @@ User.find({}).remove()
   .then(() => {
     User.create({
       provider: 'local',
-      name: 'Test User',
+      name: 'Test',
       email: 'test@example.com',
       password: 'test',
+      friends: ['Lucy', 'Admin'],
       videos: [{
         url: 'http://www.youtube.com/embed/sWOXYDBbz0g',
         score: 5,
@@ -209,7 +210,8 @@ User.find({}).remove()
       role: 'admin',
       name: 'Admin',
       email: 'admin@example.com',
-      password: 'admin'
+      password: 'admin',
+      friends: ['Admin', 'Test']
     })
     .then(() => {
       console.log('finished populating users');

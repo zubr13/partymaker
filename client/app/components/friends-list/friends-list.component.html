@@ -1,0 +1,12 @@
+<div class="friends-list">
+	<h2>Find friend</h2>
+	<div class="friends">
+		<input type="search" name="search" placeholder="enter user name">
+	</div>
+	<h2>Friends list</h2>
+	<div class="friends" ng-repeat="friend in $ctrl.friends">
+		<span id="name">
+			<a ng-href="profile/{{friend}}">{{friend}}</a>
+		</span>
+	</div>
+</div>
