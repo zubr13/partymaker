@@ -3,10 +3,19 @@ const angular = require('angular');
 
 export class commentsBlockComponent {
   /*@ngInject*/
-  constructor() {
-    this.message = 'World';
+  constructor(videoService) {
+    this.comment = '';
+    this.videoService = videoService;
+  }
+
+  addComment(){
+    this.videoService.addComment(this.comment).then(() => {
+
+    });
   }
 }
+
+commentsBlockComponent.$inject = ['videoService'];
 
 export default angular.module('partymakerApp.comments-block', [])
   .component('commentsBlock', {
