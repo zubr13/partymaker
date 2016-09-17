@@ -27,6 +27,26 @@ comments-block{
       margin-top: 5px;
     }
   }
+
+  .comment-input{
+    width: 50%;
+    background-color: white;
+    color: $black;
+  }
+
+  .comment-video-button {
+    background-color: $black;
+    color: white;
+    margin-left: 20px;
+    font-weight: bold;
+    font-size: $font-size-base-bigger;
+    border: 1px solid white;
+    outline: 0;
+    &:hover {
+      color: $black;
+      background-color: $gray-light;
+    }
+  }
 }
 
 

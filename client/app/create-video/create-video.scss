@@ -9,16 +9,15 @@ h1{
 }
 
 .create-video-button {
-    background-color: $black;
-    color: $gray-light;
-    margin-left: 20px;
-    font-weight: bold;
-    font-size: $font-size-base-big;
-    border: 1px solid $gray-dark;
-    outline: 0;
-    &:hover {
-      color: $black;
-      background-color: $gray-light;
-    }
-
+  background-color: $black;
+  color: $gray-light;
+  margin-left: 20px;
+  font-weight: bold;
+  font-size: $font-size-base-big;
+  border: 1px solid $gray-dark;
+  outline: 0;
+  &:hover {
+    color: $black;
+    background-color: $gray-light;
   }
+}

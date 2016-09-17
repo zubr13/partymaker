@@ -1,5 +1,7 @@
 <div class="comments-block">
 	<h1>Comments</h1>
+	<input class="comment-input" type="text" ng-model="$ctrl.comment">
+	<button class="comment-video-button" ng-click="$ctrl.addComment()">Comment</button>
 	<div class="comment" ng-repeat="comment in $ctrl.comments">
 		<span id="name">{{comment.author}}</span>
     <span id="date">{{comment.date}}</span>
