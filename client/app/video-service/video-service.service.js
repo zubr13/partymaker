@@ -13,8 +13,6 @@ export function videoServiceService($http) {
     }
 
     this.saveMessage = function(id, message){
-      console.log(id);
-      console.log(message);
       $http.put(`http://localhost:3000/api/sessions/${id}/addcomment`, message).then((response) => {
         console.log(response.data);
       });
