@@ -16,6 +16,7 @@ export class VideoComponent {
     this.isReadonly = false;
     this.videoService = videoService;
     this.$stateParams = $stateParams;
+    this.videoId = $stateParams.id;
     this.video = {};
     this.getVideo();
   }

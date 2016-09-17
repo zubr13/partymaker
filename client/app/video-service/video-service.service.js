@@ -8,26 +8,30 @@ export function videoServiceService($http) {
   this.currentPlayMode = "";
 	 // this.videos = [];
 
-    this.getVideoById = function(id){
+    this.getVideoById = (id) => {
       return $http.get(`http://localhost:3000/api/videos/${id}`).then(response => response.data);
     }
 
-    this.saveMessage = function(id, message){
-      $http.put(`http://localhost:3000/api/sessions/${id}/addcomment`, message).then((response) => {
+    this.saveMessage = (id, message) => {
+      $http.put(`http://localhost:3000/api/sessions/${id}/addmessage`, message).then((response) => {
         console.log(response.data);
       });
     }
 
-    this.createSession = function(data){
+    this.addComment = (id, comment) => {
+      return $http.put(`http://localhost:3000/api/videos/${id}/addcomment`, comment).then(response => response.data);
+    }
+
+    this.createSession = (data) => {
       return $http.post('http://localhost:3000/api/sessions',
        { video: {name: data.name, youtube: data.youtube, score: 1}}).then((response) => response.data);
     }
 
-    this.getVideos = function(){
+    this.getVideos = () => {
       return $http.get('http://localhost:3000/api/videos').then((response) => response.data);
     }
 
-    this.getSessionById = function(id){
+    this.getSessionById = (id) => {
       return $http.get(`http://localhost:3000/api/sessions/${id}`).then((response) => response.data);
     }
 
