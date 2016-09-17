@@ -11,6 +11,16 @@ function validationError(res, statusCode) {
   };
 }
 
+function respondWithResult(res, statusCode) {
+  statusCode = statusCode || 200;
+  return function(entity) {
+    if(entity) {
+      return res.status(statusCode).json(entity);
+    }
+    return null;
+  };
+}
+
 function handleError(res, statusCode) {
   statusCode = statusCode || 500;
   return function(err) {
@@ -61,6 +71,26 @@ export function show(req, res, next) {
       res.json(user);
     })
     .catch(err => next(err));
+}
+
+export function addVideo(req, res) {
+  if(req.body._id) {
+    delete req.body._id;
+  }
+  return User.findByIdAndUpdate(req.params.id, {$push: { videos: req.body }}, {upsert: true, setDefaultsOnInsert: true, runValidators: true}).exec()
+
+    .then(respondWithResult(res))
+    .catch(handleError(res));
+}
+
+export function addComment(req, res) {
+  if(req.body._id) {
+    delete req.body._id;
+  }
+  return User.findByIdAndUpdate(req.params.id, {$push: { comments: req.body }}, {upsert: true, setDefaultsOnInsert: true, runValidators: true}).exec()
+
+    .then(respondWithResult(res))
+    .catch(handleError(res));
 }
 
 /**
