@@ -9,13 +9,23 @@ export class videoListComponent {
     this.sessionNumber = Math.floor(Math.random() * 10);
     this.sharedUrl = '';
     this.videoService = videoService;
-    this.videos = videoService.videos;
+    this.videos = [];
     this.$state = $state;
+    this.getVideos();
   }
 
   shareVideo(url){
     console.log(url);
     this.sharedUrl = url;
+  }
+
+  getVideos(){
+    this.videoService.getVideos().then((data) => {
+      this.videos = data;
+      for(let i = 0; i < this.videos.length; i++){
+        this.videos[i].url = `http://localhost:3000/video/${this.videos[i]._id}`;
+      }
+    });
   }
 
   goToVideo(video){

@@ -14,7 +14,7 @@ Videos.find({}).remove()
     Videos.create({
       name: 'Rick Roll',
       author: 'Rick Astley',
-      url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+      youtube: 'http://www.youtube.com/embed/sWOXYDBbz0g',
       comments: [{
         author: 'Bogdan',
         message: 'BEST VIDEO AS ALWAYS!'
@@ -25,7 +25,7 @@ Videos.find({}).remove()
     }, {
       name: 'MC Hammer - U Cant Touch This',
       author: 'MC Hammer',
-      url: 'https://www.youtube.com/watch?v=otCpCn0l4Wo',
+      youtube: 'http://www.youtube.com/embed/Z1ktxiqyiLA',
       comments: [{
         author: 'Bogdan',
         message: 'BEST VIDEO AS ALWAYS!'
@@ -33,7 +33,87 @@ Videos.find({}).remove()
         author: 'Lucy',
         message: 'Another shitty video, meh'
       }]
-    });
+    }, {
+      name: 'MC Hammer - U Cant Touch This',
+      author: 'MC Hammer',
+      youtube: 'http://www.youtube.com/embed/kzcyGNsj858',
+      comments: [{
+        author: 'Bogdan',
+        message: 'BEST VIDEO AS ALWAYS!'
+      }, {
+        author: 'Lucy',
+        message: 'Another shitty video, meh'
+      }]
+    }, {
+      name: 'MC Hammer - U Cant Touch This',
+      author: 'MC Hammer',
+      youtube: 'http://www.youtube.com/embed/DBjPIabiRNg',
+      comments: [{
+        author: 'Bogdan',
+        message: 'BEST VIDEO AS ALWAYS!'
+      }, {
+        author: 'Lucy',
+        message: 'Another shitty video, meh'
+      }]
+    }, {
+      name: 'MC Hammer - U Cant Touch This',
+      author: 'MC Hammer',
+      youtube: 'http://www.youtube.com/embed/RL_2FnIBVgI',
+      comments: [{
+        author: 'Bogdan',
+        message: 'BEST VIDEO AS ALWAYS!'
+      }, {
+        author: 'Lucy',
+        message: 'Another shitty video, meh'
+      }]
+    }, {
+      name: 'MC Hammer - U Cant Touch This',
+      author: 'MC Hammer',
+      youtube: 'http://www.youtube.com/embed/FIqXDNNBVv0',
+      comments: [{
+        author: 'Bogdan',
+        message: 'BEST VIDEO AS ALWAYS!'
+      }, {
+        author: 'Lucy',
+        message: 'Another shitty video, meh'
+      }]
+    }, {
+      name: 'MC Hammer - U Cant Touch This',
+      author: 'MC Hammer',
+      youtube: 'http://www.youtube.com/embed/IR6smI_YJDE',
+      comments: [{
+        author: 'Bogdan',
+        message: 'BEST VIDEO AS ALWAYS!'
+      }, {
+        author: 'Lucy',
+        message: 'Another shitty video, meh'
+      }]
+    }, {
+      name: 'MC Hammer - U Cant Touch This',
+      author: 'MC Hammer',
+      youtube: 'http://www.youtube.com/embed/tHbCkikFfDE',
+      comments: [{
+        author: 'Bogdan',
+        message: 'BEST VIDEO AS ALWAYS!'
+      }, {
+        author: 'Lucy',
+        message: 'Another shitty video, meh'
+      }]
+    }, {
+      name: 'MC Hammer - U Cant Touch This',
+      author: 'MC Hammer',
+      youtube: 'http://www.youtube.com/embed/ws2X48zX3Dg',
+      comments: [{
+        author: 'Bogdan',
+        message: 'BEST VIDEO AS ALWAYS!'
+      }, {
+        author: 'Lucy',
+        message: 'Another shitty video, meh'
+      }]
+    }
+
+
+    );
   });
 
 
@@ -49,20 +129,18 @@ Sessions.find({}).remove()
       }, {
         name: 'Bogdan'
       }],
-      videos: [{
-        url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+      url: 'http://randomurl.com',
+      video: {
+        youtube: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
         score: 5
-      }, {
-        url: 'https://www.youtube.com/watch?v=IxGvm6btP1A',
-        score: 5
-      }],
+      },
       chat:[{
-          author: 'Bogdan',
-          message: 'BEST VIDEO EVER'
-        }, {
-          author: 'Lucy',
-          message: 'Meh, worst video EVER'
-        }]
+        author: 'Bogdan',
+        message: 'BEST VIDEO EVER'
+      }, {
+        author: 'Lucy',
+        message: 'Meh, worst video EVER'
+      }]
     });
   });
 

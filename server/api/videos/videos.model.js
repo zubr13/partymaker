@@ -6,7 +6,7 @@ import mongoose, {Schema} from 'mongoose';
 var VideosSchema = new Schema({
   name: String,
   author: String,
-  url: String,
+  youtube: String,
   comments: [{
     author: String,
     date: { type: Date, default: Date.now },

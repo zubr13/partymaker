@@ -6,81 +6,13 @@ export function videoServiceService($http) {
 	// AngularJS will instantiate a singleton by calling "new" on this function
   this.currentVideo = {};
   this.currentPlayMode = "";
-	 this.videos = [
-      {
-        id: 1,
-        name: 'Video',
-        author: 'Author',
-        youtube: 'http://www.youtube.com/embed/M7lc1UVf-VE?enablejsapi=1&origin=http://example.com',
-        url: "http://localhost:3000/video/1"
-      },
-      {
-        id: 2,
-        name: 'Video',
-        author: 'Author',
-        youtube: 'http://www.youtube.com/embed/sWOXYDBbz0g',
-        url: "http://localhost:3000/video/2"
-      },
-      {
-        id: 3,
-        name: 'Video',
-        author: 'Author',
-        youtube: 'http://www.youtube.com/embed/Z1ktxiqyiLA',
-        url: "http://localhost:3000/video/3"
-      },
-      {
-        id: 4,
-        name: 'Video',
-        author: 'Author',
-        youtube: 'http://www.youtube.com/embed/kzcyGNsj858',
-        url: "http://localhost:3000/video/4"
-      },
-      {
-        id: 5,
-        name: 'Video',
-        author: 'Author',
-        youtube: 'http://www.youtube.com/embed/DBjPIabiRNg',
-        url: "http://localhost:3000/video/5"
-      },
-      {
-        id: 6,
-        name: 'Video',
-        author: 'Author',
-        youtube: 'http://www.youtube.com/embed/RL_2FnIBVgI',
-        url: "http://localhost:3000/video/6"
-      },
-      {
-        id: 7,
-        name: 'Video',
-        author: 'Author',
-        youtube: 'http://www.youtube.com/embed/FIqXDNNBVv0',
-        url: "http://localhost:3000/video/7"
-      },
-      {
-        id: 8,
-        name: 'Video',
-        author: 'Author',
-        youtube: 'http://www.youtube.com/embed/IR6smI_YJDE',
-        url: "http://localhost:3000/video/8"
-      },
-      {
-        id: 9,
-        name: 'Video',
-        author: 'Author',
-        youtube: 'http://www.youtube.com/embed/MhkGQAoc7bc',
-        url: "http://localhost:3000/video/9"
-      }
-    ];
+	 // this.videos = [];
 
     this.getVideoById = function(id){
-      for(let i = 0; i < this.videos.length; i++){
-        if(this.videos[i].id == id){
-          return this.videos[i];
-        }
-      }
+      return $http.get(`http://localhost:3000/api/videos/${id}`).then(response => response.data);
     }
 
-    this.saveVideo = function(id){
+    this.saveMessage = function(id){
       $http.put(`http://localhost:3000/api/sessions/${id}/addcomment`).then((response) => {
         console.log(response.data);
       });
@@ -88,6 +20,14 @@ export function videoServiceService($http) {
 
     this.createSession = function(){
       return $http.post('http://localhost:3000/api/sessions').then((response) => response.data);
+    }
+
+    this.getVideos = function(){
+      return $http.get('http://localhost:3000/api/videos').then((response) => response.data);
+    }
+
+    this.getSessionById = function(id){
+      return $http.get(`http://localhost:3000/api/sessions/${id}`).then((response) => response.data);
     }
 }
 

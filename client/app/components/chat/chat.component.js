@@ -4,12 +4,11 @@ const angular = require('angular');
 export class chatComponent {
   /*@ngInject*/
   constructor(socketService, videoService) {
-    this.messages = [];
     
     this.socket = socketService.socket;
 
     this.socket.on('chat message', (msg) => {
-        this.messages.push({date: "12-14-14", author: "Petya", message: msg});
+        this.messages.push({date: new Date(), author: "Petya", message: msg});
     });
 
     this.videoService = videoService;
@@ -19,14 +18,14 @@ export class chatComponent {
   sendMessage(){
     this.socket.emit('chat message', this.messageValue);
     this.messageValue = '';
-    this.videoService.saveVideo();
+    this.videoService.saveMessage(this.session);
   }
 }
 
 export default angular.module('partymakerApp.chat', [])
   .component('chat', {
     template: require('./chat.component.html'),
-    bindings: { },
+    bindings: { messages: '<', session: '<'},
     controller: chatComponent
   })
   .name;

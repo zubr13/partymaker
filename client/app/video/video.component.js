@@ -9,15 +9,26 @@ import singleVideoPlayer from './../components/single-video-player/single-video-
 
 export class VideoComponent {
   /*@ngInject*/
-  constructor(videoService, $stateParams) {
+  constructor(videoService, $stateParams, $scope) {
     this.rate = 4;
     this.max = 5;
+    this.$scope = $scope;
     this.isReadonly = false;
-    this.video = videoService.getVideoById($stateParams.id);
+    this.videoService = videoService;
+    this.$stateParams = $stateParams;
+    this.video = {};
+    this.getVideo();
+  }
+
+  getVideo(){
+    this.videoService.getVideoById(this.$stateParams.id).then((data) => {
+      this.video = data;
+      this.$scope.$broadcast('videoLoaded', this.video);
+    });
   }
 }
 
-VideoComponent.$inject = ['videoService', '$stateParams'];
+VideoComponent.$inject = ['videoService', '$stateParams', '$scope'];
 
 export default angular.module('partymakerApp.video', [uiRouter, videoList, singleVideoPlayer])
   .config(routes)

@@ -3,17 +3,21 @@ const angular = require('angular');
 
 export class singleVideoPlayerComponent {
   /*@ngInject*/
-  constructor(videoService) {
+  constructor(videoService, $scope) {
     this.videoService = videoService;
-    this.videoId = this.parseUrl(this.youtube);
-    this.player = new YT.Player('player', {
-      width: 700,
-      height: 500,
-      videoId: this.videoId,
-      events: {
-            'onStateChange': this.onPlayerStateChange.bind(this)
-      }
-    }); 
+
+    $scope.$on('videoLoaded', (event, video) => {
+
+        this.videoId = this.parseUrl(video.youtube);
+        this.player = new YT.Player('player', {
+          width: 700,
+          height: 500,
+          videoId: this.videoId,
+          events: {
+              'onStateChange': this.onPlayerStateChange.bind(this)
+          }
+        }); 
+    });
   }
 
   onPlayerStateChange(event) {
@@ -38,7 +42,7 @@ export class singleVideoPlayerComponent {
 export default angular.module('partymakerApp.single-video-player', [])
   .component('singleVideoPlayer', {
     template: require('./single-video-player.component.html'),
-    bindings: { youtube: '@' },
+    bindings: {},
     controller: singleVideoPlayerComponent
   })
   .name;

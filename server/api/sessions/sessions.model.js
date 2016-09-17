@@ -10,10 +10,11 @@ var SessionsSchema = new Schema({
   members: [{
     name: String
   }],
-  videos: [{
-    url: String,
-    score: { type: Number, min: 1, max: 5 }
-  }],
+  url: String,
+  video: {
+    youtube: String,
+    score: { type: Number, min: 1, max: 5 },
+  },
   chat: [{
     author: String,
     date: { type: Date, default: Date.now },

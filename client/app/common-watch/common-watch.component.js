@@ -18,16 +18,29 @@ import socket from './../../components/socket/socket.service';
 
 export class CommonWatchComponent {
   /*@ngInject*/
-  constructor(videoService, socketService) {
-    this.rate = 4;
+  constructor(videoService, socketService, $stateParams, $scope) {
+    this.$stateParams = $stateParams;
+    this.$scope = $scope;
+    this.videoService = videoService;
+    this.rate = 0;
+    this.messages = [];
     this.max = 5;
     this.isReadonly = false;
-    this.currentVideo = videoService.currentVideo;
+    this.sessionId = this.$stateParams.id;
+    this.getSessionById();
     socketService.syncUpdates();
+  }
+
+  getSessionById(){
+    this.videoService.getSessionById(this.$stateParams.id).then(data => {
+      this.$scope.$broadcast('videoLoaded', data.video);
+      this.rate = data.video.score;
+      this.messages = data.video.messages;
+    });
   }
 }
 
-CommonWatchComponent.$inject = ['videoService', 'socketService'];
+CommonWatchComponent.$inject = ['videoService', 'socketService', '$stateParams', '$scope'];
 
 export default angular.module('partymakerApp.common-watch', [uiBootstrap, uiRouter, animate, sanitize,
  singleVideoPlayer, videoList, commentsBlock, chat, videoService, socket])
