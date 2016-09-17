@@ -30,7 +30,7 @@ export class videoListComponent {
 
   goToVideo(video){
     this.videoService.currentVideo = video;
-    this.videoService.createSession().then((data) => {
+    this.videoService.createSession(video).then((data) => {
       this.$state.go(`common-watch`, {id: data._id});
     });
   }

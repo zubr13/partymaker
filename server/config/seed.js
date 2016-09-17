@@ -131,7 +131,8 @@ Sessions.find({}).remove()
       }],
       url: 'http://randomurl.com',
       video: {
-        youtube: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+        name: "JavaScript tutorial",
+        youtube: 'http://www.youtube.com/embed/sWOXYDBbz0g',
         score: 5
       },
       chat:[{
@@ -184,7 +185,7 @@ User.find({}).remove()
       email: 'test@example.com',
       password: 'test',
       videos: [{
-        url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+        url: 'http://www.youtube.com/embed/sWOXYDBbz0g',
         score: 5,
         comments: [{
           message: 'HELLO'
@@ -198,7 +199,7 @@ User.find({}).remove()
         name: 'PARTY HARD',
         videos: [
           {
-            url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+            url: 'http://www.youtube.com/embed/FIqXDNNBVv0',
             score: 5
           }
         ]

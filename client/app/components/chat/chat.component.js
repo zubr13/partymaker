@@ -8,7 +8,7 @@ export class chatComponent {
     this.socket = socketService.socket;
 
     this.socket.on('chat message', (msg) => {
-        this.messages.push({date: new Date(), author: "Petya", message: msg});
+        this.messages.push(msg);
     });
 
     this.videoService = videoService;
@@ -16,9 +16,9 @@ export class chatComponent {
   }
 
   sendMessage(){
-    this.socket.emit('chat message', this.messageValue);
+    this.socket.emit('chat message', {date: new Date(), message: this.messageValue, author: "Petya"});
+    this.videoService.saveMessage(this.session, {message: this.messageValue, author: "Petya"});
     this.messageValue = '';
-    this.videoService.saveMessage(this.session);
   }
 }
 

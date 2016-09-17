@@ -24,6 +24,7 @@ export class CommonWatchComponent {
     this.videoService = videoService;
     this.rate = 0;
     this.messages = [];
+    this.videoName = "";
     this.max = 5;
     this.isReadonly = false;
     this.sessionId = this.$stateParams.id;
@@ -33,9 +34,11 @@ export class CommonWatchComponent {
 
   getSessionById(){
     this.videoService.getSessionById(this.$stateParams.id).then(data => {
+      console.log(data);
       this.$scope.$broadcast('videoLoaded', data.video);
       this.rate = data.video.score;
-      this.messages = data.video.messages;
+      this.messages = data.chat;
+      this.videoName = data.video.name;
     });
   }
 }
