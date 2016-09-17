@@ -132,15 +132,15 @@ Sessions.find({}).remove()
       url: 'http://randomurl.com',
       video: {
         youtube: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
-        score: 5,
-        messages: [{
-          author: 'Bogdan',
-          message: 'BEST VIDEO EVER'
-        }, {
-          author: 'Lucy',
-          message: 'Meh, worst video EVER'
-        }]
-      }
+        score: 5
+      },
+      chat:[{
+        author: 'Bogdan',
+        message: 'BEST VIDEO EVER'
+      }, {
+        author: 'Lucy',
+        message: 'Meh, worst video EVER'
+      }]
     });
   });
 
