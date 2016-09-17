@@ -49,28 +49,20 @@ Sessions.find({}).remove()
       }, {
         name: 'Bogdan'
       }],
-      url: 'http://randomurl.com',
       videos: [{
         url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
-        score: 5,
-        messages: [{
+        score: 5
+      }, {
+        url: 'https://www.youtube.com/watch?v=IxGvm6btP1A',
+        score: 5
+      }],
+      chat:[{
           author: 'Bogdan',
           message: 'BEST VIDEO EVER'
         }, {
           author: 'Lucy',
           message: 'Meh, worst video EVER'
         }]
-      }, {
-        url: 'https://www.youtube.com/watch?v=IxGvm6btP1A',
-        score: 5,
-        messages: [{
-          author: 'Bogdan',
-          message: 'OMG KANYE'
-        }, {
-          author: 'Andrey',
-          message: 'Wow nice ass!'
-        }]
-      }]
     });
   });
 
