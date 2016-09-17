@@ -56,6 +56,14 @@ export default function(socketio) {
       socketio.emit('chat message', msg);
     });
 
+    socket.on('paused', function(){
+      socketio.emit('paused');
+    });
+
+    socket.on('played', function(){
+      socketio.emit('played');
+    });
+
     // Call onConnect.
     onConnect(socket);
     socket.log('CONNECTED');

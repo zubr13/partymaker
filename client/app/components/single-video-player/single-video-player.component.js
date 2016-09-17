@@ -3,8 +3,10 @@ const angular = require('angular');
 
 export class singleVideoPlayerComponent {
   /*@ngInject*/
-  constructor(videoService, $scope) {
+  constructor(videoService, $scope, socketService) {
     this.videoService = videoService;
+
+    this.socket = socketService.socket;
 
     $scope.$on('videoLoaded', (event, video) => {
 
@@ -18,14 +20,23 @@ export class singleVideoPlayerComponent {
           }
         }); 
     });
+
+    this.socket.on('played', () => {
+        this.player.playVideo();
+    });
+
+    this.socket.on('paused', () => {
+        this.player.pauseVideo();
+    });
+
   }
 
   onPlayerStateChange(event) {
         if (event.data == YT.PlayerState.PAUSED) {
-          this.videoService.currentPlayMode = "pause";
+          this.socket.emit('paused');
         }
         if (event.data == YT.PlayerState.PLAYING) {
-          this.videoService.currentPlayMode = "play";
+          this.socket.emit('played');
         }
       }
 

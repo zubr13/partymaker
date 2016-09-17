@@ -34,7 +34,6 @@ export class CommonWatchComponent {
 
   getSessionById(){
     this.videoService.getSessionById(this.$stateParams.id).then(data => {
-      console.log(data);
       this.$scope.$broadcast('videoLoaded', data.video);
       this.rate = data.video.score;
       this.messages = data.chat;
