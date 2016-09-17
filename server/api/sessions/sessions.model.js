@@ -5,11 +5,10 @@ import mongoose, {Schema} from 'mongoose';
 
 var SessionsSchema = new Schema({
   name: String,
+  creator: String,
   info: String,
   date: { type: Date, default: Date.now },
-  members: [{
-    name: String
-  }],
+  members: [String],
   url: String,
   video: {
     name: String,

@@ -12,5 +12,6 @@ router.put('/:id', controller.upsert);
 router.patch('/:id', controller.patch);
 router.delete('/:id', controller.destroy);
 router.put('/:id/addmessage', controller.addMessage);
+router.put('/:id/addmember', controller.addMember);
 
 module.exports = router;
