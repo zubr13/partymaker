@@ -11,15 +11,15 @@ var SessionsSchema = new Schema({
     name: String
   }],
   url: String,
-  videos: [{
-    url: String,
+  video: {
+    youtube: String,
     score: { type: Number, min: 1, max: 5 },
     messages: [{
       date: { type: Date, default: Date.now },
       author: String,
       message: String
     }]
-  }]
+  }
 });
 
 /**
