@@ -30,7 +30,7 @@ export class singleVideoPlayerComponent {
       }
 
   parseUrl(url){
-    const parts = url.split(new RegExp('[/:?=&-]', 'g'));
+    const parts = url.split(new RegExp('[/:?=&]', 'g'));
     for(let i = 0; i < parts.length; i++){
       if(parts[i].indexOf('embed') !== -1){
         return parts[i + 1];

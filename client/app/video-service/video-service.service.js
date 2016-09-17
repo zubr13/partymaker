@@ -30,6 +30,10 @@ export function videoServiceService($http) {
     this.getSessionById = function(id){
       return $http.get(`http://localhost:3000/api/sessions/${id}`).then((response) => response.data);
     }
+
+    this.createVideo = (video) => {
+      return $http.post('http://localhost:3000/api/videos', video).then(response => response.data);
+    }
 }
 
 export default angular.module('partymakerApp.video-service', [])
