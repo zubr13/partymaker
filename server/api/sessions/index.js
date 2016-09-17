@@ -11,6 +11,6 @@ router.post('/', controller.create);
 router.put('/:id', controller.upsert);
 router.patch('/:id', controller.patch);
 router.delete('/:id', controller.destroy);
-router.put('/:id/addcomment', controller.addComment);
+router.put('/:id/addmessage', controller.addMessage);
 
 module.exports = router;
