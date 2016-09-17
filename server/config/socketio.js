@@ -37,6 +37,8 @@ export default function(socketio) {
   //   handshake: true
   // }));
 
+  const clients = [];
+
   socketio.on('connection', function(socket) {
     socket.address = `${socket.request.connection.remoteAddress}:${socket.request.connection.remotePort}`;
 
@@ -46,18 +48,38 @@ export default function(socketio) {
       console.log(`SocketIO ${socket.nsp.name} [${socket.address}]`, ...data);
     };
 
+    socket.on('currentTime', (time) => {
+      clients[clients.length - 1].emit("time", time);
+      console.log(time);
+    });
     // Call onDisconnect.
     socket.on('disconnect', () => {
       onDisconnect(socket);
       socket.log('DISCONNECTED');
+      const index = clients.indexOf(socket);
+      if (index != -1) {
+          clients.splice(index, 1);
+      }
     });
 
     socket.on('chat message', function(msg){
       socketio.emit('chat message', msg);
     });
 
+    socket.on('paused', function(){
+      socketio.emit('paused');
+    });
+
+    socket.on('played', function(){
+      socketio.emit('played');
+    });
+
     // Call onConnect.
     onConnect(socket);
     socket.log('CONNECTED');
+
+    clients.push(socket);
+
+    clients[0].emit('currentTime');
   });
 }
