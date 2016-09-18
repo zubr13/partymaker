@@ -12,8 +12,13 @@ export class NavbarComponent {
     this.isAdmin = Auth.isAdminSync;
     this.getCurrentUser = Auth.getCurrentUserSync;
     this.isCollapsed = true;
+    this.checkInvites();
   }
 
+  checkInvites() {
+    console.log(this.getCurrentUser);
+
+  }
 }
 
 export default angular.module('directives.navbar', [])

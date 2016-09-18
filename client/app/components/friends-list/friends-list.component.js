@@ -14,7 +14,18 @@ export class friendsListComponent {
     this.searchResults = [];
     this.profile;
     this.invites;
+    this.me;
     this.getUser();
+    this.getAnotherUser();
+  }
+
+  checkMe() {
+    if(this.profile._id === this.$stateParams.id) {
+      this.me = true;
+    } else {
+      this.me = false;
+    }
+    console.log(this.me);
   }
 
   searchFriends(name) {
@@ -55,7 +66,19 @@ export class friendsListComponent {
     this.Auth.getCurrentUser().then(data => {
       this.profile = data;
       this.invites = data.invites;
+      this.checkMe();
     });
+  }
+
+  getAnotherUser() {
+    if(!this.me) {
+      this.$http.get(`http://localhost:3000/api/users/id/${this.$stateParams.id}`)
+      .then(data => {
+        this.profile = data.data;
+        this.invites = data.data.invites;
+        console.log(this.invites);
+      });
+    }
   }
 
 }
