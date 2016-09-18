@@ -1,5 +1,7 @@
 .members-block{
-	padding: 20px;
+	border-top: 3px solid $gray;
+	padding: 10px;
+	margin-top: 15px;
 }
 
 #friends-select {
@@ -9,6 +11,7 @@
 
 .add-button{
 	font-size: 18px;
+	margin: 5px;
 	background-color: $gray-blue;
 	border: $gray-light 2px solid;
 	border-radius: 3px;

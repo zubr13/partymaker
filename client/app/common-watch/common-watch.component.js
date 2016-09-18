@@ -19,9 +19,11 @@ import sessionMembers from './../components/session-members/session-members.comp
 
 export class CommonWatchComponent {
   /*@ngInject*/
-  constructor(videoService, socketService, $stateParams, $scope) {
+  constructor(videoService, socketService, $stateParams, $scope, Auth) {
     this.$stateParams = $stateParams;
+    this.Auth = Auth;
     this.$scope = $scope;
+    this.user = {};
     this.videoService = videoService;
     this.rate = 0;
     this.messages = [];
@@ -29,6 +31,7 @@ export class CommonWatchComponent {
     this.max = 5;
     this.isReadonly = false;
     this.sessionId = this.$stateParams.id;
+    this.getUser();
     this.getSessionById();
     socketService.syncUpdates();
   }
@@ -41,9 +44,15 @@ export class CommonWatchComponent {
       this.videoName = data.video.name;
     });
   }
+
+  getUser(){
+    this.Auth.getCurrentUser().then(data => {
+      this.user = data;;
+    });  
+  }
 }
 
-CommonWatchComponent.$inject = ['videoService', 'socketService', '$stateParams', '$scope'];
+CommonWatchComponent.$inject = ['videoService', 'socketService', '$stateParams', '$scope', 'Auth'];
 
 export default angular.module('partymakerApp.common-watch', [uiBootstrap, uiRouter, animate, sanitize,
  singleVideoPlayer, videoList, commentsBlock, chat, videoService, socket, sessionMembers])
