@@ -41,7 +41,8 @@ var UserSchema = new Schema({
   github: {},
   invites: [{
     session: String,
-    creator: String
+    creator: String,
+    video: String
   }],
   friends: [{
     id: String,

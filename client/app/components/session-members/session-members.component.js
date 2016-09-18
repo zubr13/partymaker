@@ -8,12 +8,14 @@ export class sessionMembersComponent {
     this.members = [];
     this.friends = [];
     this.creator = "";
+    this.videoName = "";
     this.$stateParams = $stateParams;
     this.videoService = videoService;
     this.Auth = Auth;
     $scope.$on('videoLoaded', (event, video) => {
       this.members = video.members;
       this.creator = video.creator;
+      this.videoName = video.video.name;
     });
     this.getUser();
   }
@@ -27,7 +29,7 @@ export class sessionMembersComponent {
 
   addMember() {
     this.videoService.addSessionMember(this.$stateParams.id, this.choosedMember);
-    this.videoService.sendInvite(this.choosedMember, this.creator, this.$stateParams.id);
+    this.videoService.sendInvite(this.videoName, this.choosedMember, this.creator, this.$stateParams.id);
     this.members.push(this.choosedMember);
   }
 }

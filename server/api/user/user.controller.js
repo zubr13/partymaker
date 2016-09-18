@@ -133,7 +133,7 @@ export function invite(req, res) {
   if(req.body._id) {
     delete req.body._id;
   }
-  return User.findOneAndUpdate({name: req.body.name}, {$push: { invites: { creator: req.body.creator, session: req.body.session } }}, {upsert: true, setDefaultsOnInsert: true, runValidators: true}).exec()
+  return User.findOneAndUpdate({name: req.body.name}, {$push: { invites: { video: req.body.video, creator: req.body.creator, session: req.body.session } }}, {upsert: true, setDefaultsOnInsert: true, runValidators: true}).exec()
 
     .then(respondWithResult(res))
     .catch(handleError(res));
