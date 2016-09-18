@@ -43,6 +43,10 @@ export function videoServiceService($http) {
       return $http.put(`http://localhost:3000/api/sessions/${id}/addmember`, {member: name});
     }
 
+    this.addGrade = (id, grade) => {
+      return $http.put(`http://localhost:3000/api/sessions/${id}/addscore`, {score: grade});
+    }
+    
     this.sendInvite = (video, name, creator, session) => {
       return $http.put(`http://localhost:3000/api/users/invite`, {video, name, creator, session});
     }

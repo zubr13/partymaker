@@ -17,10 +17,10 @@ export class chatComponent {
   }
 
   sendMessage() {
-    this.socket.emit('chat message', {date: new Date(), message: this.messageValue, author: this.user.name});
+    this.socket.emit('chat message', {date: new Date(), message: this.messageValue, author: this.user.name || 'Anon'});
     const message = this.messageValue;
     this.messageValue = '';
-    this.videoService.saveMessage(this.session, {message: message, author: this.user.name});
+    this.videoService.saveMessage(this.session, {message: message, author: this.user.name || 'Anon'});
   }
 }
 

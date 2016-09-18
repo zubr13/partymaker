@@ -23,7 +23,12 @@ export class sessionMembersComponent {
   getUser() {
     this.Auth.getCurrentUser().then(data => {
       this.friends = data.friends;
-      this.choosedMember = this.friends[0];
+      if(this.friends){
+        this.choosedMember = this.friends[0];
+      }
+      else{
+        this.choosedMember = "Add friends to invite";
+      }
     });
   }
 
