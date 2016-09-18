@@ -16,4 +16,11 @@
 			<!--<button type="button" ng-click="$ctrl.deleteFriend(friend._id)">Delete Friend</button>-->
 		</span>
 	</div>
+	<h2>Invites</h2>
+	<div class="friends" ng-repeat="invite in $ctrl.invites track by $index">
+		<span id="name">
+			<a ng-href="common-watch/{{invite.session}}">{{invite.creator}} {{invite.session}} </a>
+			<!--<button type="button" ng-click="$ctrl.deleteFriend(friend._id)">Delete Friend</button>-->
+		</span>
+	</div>
 </div>
