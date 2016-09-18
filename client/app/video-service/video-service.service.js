@@ -22,9 +22,9 @@ export function videoServiceService($http) {
       return $http.put(`http://localhost:3000/api/videos/${id}/addcomment`, comment).then(response => response.data);
     }
 
-    this.createSession = (data) => {
+    this.createSession = (data, user) => {
       return $http.post('http://localhost:3000/api/sessions',
-       { video: {name: data.name, youtube: data.youtube, score: 1}}).then((response) => response.data);
+       { creator: user.name, video: {name: data.name, youtube: data.youtube, score: 1}}).then((response) => response.data);
     }
 
     this.getVideos = () => {
@@ -37,6 +37,10 @@ export function videoServiceService($http) {
 
     this.createVideo = (video) => {
       return $http.post('http://localhost:3000/api/videos', video).then(response => response.data);
+    }
+
+    this.addSessionMember = (id, name) => {
+      return $http.put(`http://localhost:3000/api/sessions/${id}/addmember`, {member: name});
     }
 }
 

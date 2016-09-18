@@ -15,6 +15,7 @@ import commentsBlock from './../components/comments-block/comments-block.compone
 import chat from './../components/chat/chat.component';
 import videoService from './../video-service/video-service.service';
 import socket from './../../components/socket/socket.service';
+import sessionMembers from './../components/session-members/session-members.component';
 
 export class CommonWatchComponent {
   /*@ngInject*/
@@ -34,7 +35,7 @@ export class CommonWatchComponent {
 
   getSessionById(){
     this.videoService.getSessionById(this.$stateParams.id).then(data => {
-      this.$scope.$broadcast('videoLoaded', data.video);
+      this.$scope.$broadcast('videoLoaded', data);
       this.rate = data.video.score;
       this.messages = data.chat;
       this.videoName = data.video.name;
@@ -45,7 +46,7 @@ export class CommonWatchComponent {
 CommonWatchComponent.$inject = ['videoService', 'socketService', '$stateParams', '$scope'];
 
 export default angular.module('partymakerApp.common-watch', [uiBootstrap, uiRouter, animate, sanitize,
- singleVideoPlayer, videoList, commentsBlock, chat, videoService, socket])
+ singleVideoPlayer, videoList, commentsBlock, chat, videoService, socket, sessionMembers])
   .config(routes)
   .component('commonWatch', {
     template: require('./common-watch.html'),
