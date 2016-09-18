@@ -34,15 +34,16 @@ export class CommonWatchComponent {
     this.sessionId = this.$stateParams.id;
     this.getUser();
     this.getSessionById();
-    this.average = undefined;
+    this.isGraded = false;
+    this.average = "";
     socketService.syncUpdates();
   }
 
   getSessionById(){
     this.videoService.getSessionById(this.$stateParams.id).then(data => {
       this.$scope.$broadcast('videoLoaded', data);
-      //this.rate = data.video.score;
-      //this.scores = data.scores;
+      this.scores = data.score;
+      this.calculateAverage();
       this.messages = data.chat;
       this.videoName = data.video.name;
     });
@@ -56,6 +57,7 @@ export class CommonWatchComponent {
 
   addGrade(){
     this.scores.push(this.rate);
+    this.isGraded = true;
     this.calculateAverage();
     this.videoService.addGrade(this.$stateParams.id, this.rate);
   }
@@ -65,8 +67,7 @@ export class CommonWatchComponent {
     for(let i = 0; i < this.scores.length; i++){
       sum += this.scores[i];
     }
-    console.log(sum);
-    this.average = sum / this.scores.length;
+    this.average = sum / this.scores.length || "";
   }
 }
 
