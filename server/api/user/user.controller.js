@@ -128,6 +128,17 @@ export function addComment(req, res) {
     .catch(handleError(res));
 }
 
+export function invite(req, res) {
+  console.log(req.body)
+  if(req.body._id) {
+    delete req.body._id;
+  }
+  return User.findOneAndUpdate({name: req.body.name}, {$push: { invites: { creator: req.body.creator, session: req.body.session } }}, {upsert: true, setDefaultsOnInsert: true, runValidators: true}).exec()
+
+    .then(respondWithResult(res))
+    .catch(handleError(res));
+}
+
 /**
  * Deletes a user
  * restriction: 'admin'

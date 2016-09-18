@@ -25,8 +25,9 @@ export class sessionMembersComponent {
     });
   }
 
-  addMember(){
+  addMember() {
     this.videoService.addSessionMember(this.$stateParams.id, this.choosedMember);
+    this.videoService.sendInvite(this.choosedMember, this.creator, this.$stateParams.id);
     this.members.push(this.choosedMember);
   }
 }

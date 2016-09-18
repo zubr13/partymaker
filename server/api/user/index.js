@@ -18,5 +18,6 @@ router.put('/:id/addcomment', controller.addComment);
 router.post('/search', controller.searchUsers);
 router.post('/addfriend', controller.addToFriends);
 router.post('/deletefriend', controller.deleteFriend);
+router.put('/invite', controller.invite);
 
 module.exports = router;
