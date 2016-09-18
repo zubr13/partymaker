@@ -6,7 +6,7 @@
 // You will need to set these on the server you deploy to.
 
 module.exports = {
-  DOMAIN: 'http://localhost:3000',
+  DOMAIN: 'http://localhost:8888',
   SESSION_SECRET: 'partymaker-secret',
 
   FACEBOOK_ID: '157524328028332',

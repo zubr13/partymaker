@@ -40,7 +40,7 @@ export class videoListComponent {
     this.videoService.getVideos().then((data) => {
       this.videos = data;
       for(let i = 0; i < this.videos.length; i++){
-        this.videos[i].url = `http://localhost:3000/video/${this.videos[i]._id}`;
+        this.videos[i].url = `http://localhost:8888/video/${this.videos[i]._id}`;
       }
     });
   }

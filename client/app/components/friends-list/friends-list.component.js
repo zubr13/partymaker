@@ -29,7 +29,7 @@ export class friendsListComponent {
   }
 
   searchFriends(name) {
-    return this.$http.post('http://localhost:3000/api/users/search', { data: name })
+    return this.$http.post('http://localhost:8888/api/users/search', { data: name })
       .then((res) => {
         this.searchResults = res.data;
       })
@@ -48,7 +48,7 @@ export class friendsListComponent {
     const friend = {};
     friend.name = name;
     friend._id = _id;
-    return this.$http.post('http://localhost:3000/api/users/addfriend', { _id: this.profile._id, friend })
+    return this.$http.post('http://localhost:8888/api/users/addfriend', { _id: this.profile._id, friend })
       .then(res => {
         console.log('OK');
       });
@@ -58,7 +58,7 @@ export class friendsListComponent {
     if(!friend) {
       return null;
     }
-    return this.$http.post('http://localhost:3000/api/users/deletefriend', {_id: this.profile._id, friend })
+    return this.$http.post('http://localhost:8888/api/users/deletefriend', {_id: this.profile._id, friend })
       .then(() => console.log('deleted'));
   }
 
@@ -72,7 +72,7 @@ export class friendsListComponent {
 
   getAnotherUser() {
     if(!this.me) {
-      this.$http.get(`http://localhost:3000/api/users/id/${this.$stateParams.id}`)
+      this.$http.get(`http://localhost:8888/api/users/id/${this.$stateParams.id}`)
       .then(data => {
         this.profile = data.data;
         this.invites = data.data.invites;
