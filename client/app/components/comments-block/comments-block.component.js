@@ -11,8 +11,8 @@ export class commentsBlockComponent {
   }
 
   addComment(){
-    this.comments.push({message: this.comment, author: this.user.name});
-    this.videoService.addComment(this.video,  {message: this.comment, author: this.user.name});
+    this.comments.push({message: this.comment, author: this.user.name || 'Anon'});
+    this.videoService.addComment(this.video,  {message: this.comment, author: this.user.name || 'Anon'});
   }
 }
 

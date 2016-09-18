@@ -1,6 +1,6 @@
 <div class="members-block">
 	<h3>Creator: {{$ctrl.creator}}</h3>
-	<h4>Session members</h4>
+	<h5>Add members (only from friends):</h5>
 	<select id="friends-select" class="form-control" ng-model="$ctrl.choosedMember">
 	  <option ng-repeat="friend in $ctrl.friends track by $index">{{friend.name}}</option>
 	</select>
