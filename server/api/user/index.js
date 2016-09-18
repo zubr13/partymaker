@@ -15,5 +15,8 @@ router.get('/id/:id', controller.showById);
 router.post('/', controller.create);
 router.put('/:id/addvideo', controller.addVideo);
 router.put('/:id/addcomment', controller.addComment);
+router.post('/search', controller.searchUsers);
+router.post('/addfriend', controller.addToFriends);
+router.post('/deletefriend', controller.deleteFriend);
 
 module.exports = router;

@@ -40,6 +40,28 @@ export function index(req, res) {
     .catch(handleError(res));
 }
 
+export function searchUsers(req, res, next) {
+  let userName = req.body.data;
+  return User.find({ name: userName }).exec()
+    .then(user => {
+      if(!user) {
+        return res.status(404).end();
+      }
+      res.json(user);
+    })
+    .catch(err => next(err));
+}
+
+export function addToFriends(req, res) {
+  let userId = req.body._id;
+  return User.findOneAndUpdate({_id: userId}, {$push: { friends: req.body.friend }}, {upsert: true, setDefaultsOnInsert: true, runValidators: true}).exec()
+
+    .then(respondWithResult(res))
+    .catch(handleError(res));
+}
+
+
+
 /**
  * Creates a new user
  */
@@ -112,6 +134,15 @@ export function addComment(req, res) {
  */
 export function destroy(req, res) {
   return User.findByIdAndRemove(req.params.id).exec()
+    .then(function() {
+      res.status(204).end();
+    })
+    .catch(handleError(res));
+}
+
+export function deleteFriend(req, res) {
+  console.log(req.body);
+  return User.findByIdAndUpdate(req.body._id, {$pull: { friends: { id: req.body.friend }}}).exec()
     .then(function() {
       res.status(204).end();
     })

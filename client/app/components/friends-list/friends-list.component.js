@@ -1,17 +1,63 @@
 'use strict';
 const angular = require('angular');
-
+/* eslint no-sync: 0 */
 export class friendsListComponent {
   /*@ngInject*/
-  constructor(profileService, $stateParams, $scope, $http) {
+  constructor(profileService, $stateParams, $scope, $http, Auth) {
     this.$scope = $scope;
     this.$http = $http;
     this.profileService = profileService;
+    this.Auth = Auth;
     this.$stateParams = $stateParams;
     this.friends = profileService.friends;
+    this.searchQuery;
+    this.searchResults = [];
+    this.profile;
+    this.getUser();
   }
+
+  searchFriends(name) {
+    return this.$http.post('http://localhost:3000/api/users/search', { data: name })
+      .then((res) => {
+        this.searchResults = res.data;
+      })
+      .catch(() => {
+        this.searchResults = 'Not found';
+      });
+  }
+
+  addToFriends(name, _id) {
+    if(!name && !_id) {
+      return null;
+    }
+    if(this.$stateParams.id !== this.profile._id) {
+      return null;
+    }
+    const friend = {};
+    friend.name = name;
+    friend._id = _id;
+    return this.$http.post('http://localhost:3000/api/users/addfriend', { _id: this.profile._id, friend })
+      .then(res => {
+        console.log('OK');
+      });
+  }
+
+  deleteFriend(friend) {
+    if(!friend) {
+      return null;
+    }
+    return this.$http.post('http://localhost:3000/api/users/deletefriend', {_id: this.profile._id, friend })
+      .then(() => console.log('deleted'));
+  }
+
+  getUser() {
+    this.Auth.getCurrentUser().then(data => {
+      this.profile = data;
+    });
+  }
+
 }
-friendsListComponent.$inject = ['profileService', '$stateParams', '$scope', '$http'];
+friendsListComponent.$inject = ['profileService', '$stateParams', '$scope', '$http', 'Auth'];
 
 export default angular.module('partymakerApp.friends-list', [])
   .component('friendsList', {

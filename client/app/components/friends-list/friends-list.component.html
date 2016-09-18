@@ -1,12 +1,19 @@
 <div class="friends-list">
 	<h2>Find friend</h2>
 	<div class="friends">
-		<input type="search" name="search" placeholder="enter user name">
+		<input type="text" name="searchQuery" ng-model="searchQuery" ng-change="$ctrl.searchFriends(searchQuery)" placeholder="enter user name"/>
+		<h2>Results</h2>
+		<div class="friends" ng-repeat="user in $ctrl.searchResults track by $index">
+		<span id="name">
+			<a ng-href="profile/{{user._id}}">{{user.name}} </a>
+			<button ng-if="searchQuery" type="button" ng-click="$ctrl.addToFriends(user.name, user._id)">Add to friends</button>
+		</span>
 	</div>
 	<h2>Friends list</h2>
-	<div class="friends" ng-repeat="friend in $ctrl.friends">
+	<div class="friends" ng-repeat="friend in $ctrl.friends track by $index">
 		<span id="name">
-			<a ng-href="profile/{{friend}}">{{friend}}</a>
+			<a ng-href="profile/{{friend._id}}">{{friend.name}} </a>
+			<!--<button type="button" ng-click="$ctrl.deleteFriend(friend._id)">Delete Friend</button>-->
 		</span>
 	</div>
 </div>

@@ -39,7 +39,10 @@ var UserSchema = new Schema({
   twitter: {},
   google: {},
   github: {},
-  friends: [String],
+  friends: [{
+    id: String,
+    name: String
+  }],
   videos: [{
     url: String,
     score: { type: Number, min: 1, max: 5},
