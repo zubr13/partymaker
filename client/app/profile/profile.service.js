@@ -9,7 +9,7 @@ export function profileService($http) {
   this.videos = [];
 
   this.getUserById = id =>
-    $http.get(`http://localhost:3000/api/users/${id}`)
+    $http.get(`http://localhost:3000/api/users/id/${id}`)
       .then(response => response.data);
 
   this.getFriends = id =>

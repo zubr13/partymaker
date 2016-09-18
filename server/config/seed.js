@@ -179,7 +179,11 @@ User.find({}).remove()
       name: 'Test',
       email: 'test@example.com',
       password: 'test',
-      friends: ['Lucy', 'Admin'],
+      friends: [{
+        name: 'Yoba'
+      }, {
+        name: 'Test'
+      }],
       videos: [{
         url: 'http://www.youtube.com/embed/sWOXYDBbz0g',
         score: 5,
@@ -206,7 +210,11 @@ User.find({}).remove()
       name: 'Admin',
       email: 'admin@example.com',
       password: 'admin',
-      friends: ['Admin', 'Test']
+      friends: [{
+        name: 'Yoba'
+      }, {
+        name: 'Test'
+      }]
     })
     .then(() => {
       console.log('finished populating users');
