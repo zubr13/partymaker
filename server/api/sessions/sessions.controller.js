@@ -109,6 +109,16 @@ export function addMessage(req, res) {
     .catch(handleError(res));
 }
 
+export function addScore(req, res) {
+  if(req.body._id) {
+    delete req.body._id;
+  }
+  return Sessions.findOneAndUpdate({_id: req.params.id}, {$push: { score: req.body.score }}, {upsert: true, setDefaultsOnInsert: true, runValidators: true}).exec()
+
+    .then(respondWithResult(res))
+    .catch(handleError(res));
+}
+
 export function addMember(req, res) {
   if(req.body._id) {
     delete req.body._id;

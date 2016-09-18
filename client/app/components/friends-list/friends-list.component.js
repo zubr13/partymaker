@@ -13,6 +13,7 @@ export class friendsListComponent {
     this.searchQuery;
     this.searchResults = [];
     this.profile;
+    this.invites;
     this.getUser();
   }
 
@@ -53,6 +54,7 @@ export class friendsListComponent {
   getUser() {
     this.Auth.getCurrentUser().then(data => {
       this.profile = data;
+      this.invites = data.invites;
     });
   }
 

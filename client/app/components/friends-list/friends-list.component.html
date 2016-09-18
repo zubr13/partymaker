@@ -1,18 +1,29 @@
 <div class="friends-list">
 	<h2>Find friend</h2>
 	<div class="friends">
-		<input type="text" name="searchQuery" ng-model="searchQuery" ng-change="$ctrl.searchFriends(searchQuery)" placeholder="enter user name"/>
-		<h2>Results</h2>
+		<form name="search" target="#here" method="POST">
+			<input type="text" name="searchQuery" ng-model="searchQuery" placeholder="enter user name"/>
+			<button type="submit" name="searchQuery" ng-click="$ctrl.searchFriends(searchQuery)">Search</button>
+		</form>
+		<br/>
 		<div class="friends" ng-repeat="user in $ctrl.searchResults track by $index">
 		<span id="name">
 			<a ng-href="profile/{{user._id}}">{{user.name}} </a>
-			<button ng-if="searchQuery" type="button" ng-click="$ctrl.addToFriends(user.name, user._id)">Add to friends</button>
+			<button ng-if="searchQuery" type="submit" ng-click="$ctrl.addToFriends(user.name, user._id)">Add to friends</button>
+			<span ng-if="!$ctrl.searchResults">Not found</span>
 		</span>
 	</div>
 	<h2>Friends list</h2>
 	<div class="friends" ng-repeat="friend in $ctrl.friends track by $index">
 		<span id="name">
 			<a ng-href="profile/{{friend._id}}">{{friend.name}} </a>
+			<!--<button type="button" ng-click="$ctrl.deleteFriend(friend._id)">Delete Friend</button>-->
+		</span>
+	</div>
+	<h2>Invites to sessions</h2>
+	<div class="friends" ng-repeat="invite in $ctrl.invites track by $index">
+		<span id="name">
+			<a ng-href="common-watch/{{invite.session}}">Author: {{invite.creator}} - Session video: {{invite.video}} </a>
 			<!--<button type="button" ng-click="$ctrl.deleteFriend(friend._id)">Delete Friend</button>-->
 		</span>
 	</div>

@@ -46,6 +46,10 @@ export function videoServiceService($http) {
     this.addGrade = (id, grade) => {
       return $http.put(`http://localhost:3000/api/sessions/${id}/addscore`, {score: grade});
     }
+    
+    this.sendInvite = (video, name, creator, session) => {
+      return $http.put(`http://localhost:3000/api/users/invite`, {video, name, creator, session});
+    }
 }
 
 export default angular.module('partymakerApp.video-service', [])
