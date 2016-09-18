@@ -73,6 +73,19 @@ export function show(req, res, next) {
     .catch(err => next(err));
 }
 
+export function showById(req, res, next) {
+  var userId = req.params.id;
+
+  return User.findById(userId).exec()
+    .then(user => {
+      if(!user) {
+        return res.status(404).end();
+      }
+      res.json(user);
+    })
+    .catch(err => next(err));
+}
+
 export function addVideo(req, res) {
   if(req.body._id) {
     delete req.body._id;
