@@ -8,9 +8,10 @@ export class singleVideoPlayerComponent {
 
     this.socket = socketService.socket;
 
-    $scope.$on('videoLoaded', (event, video) => {
-
-        this.videoId = this.parseUrl(video.youtube);
+    $scope.$on('videoLoaded', (event, data) => {
+      console.log(data);
+      if(data.video){
+        this.videoId = this.parseUrl(data.video.youtube);
         this.player = new YT.Player('player', {
           width: 700,
           height: 500,
@@ -19,6 +20,18 @@ export class singleVideoPlayerComponent {
               'onStateChange': this.onPlayerStateChange.bind(this)
           }
         }); 
+      }
+      else if(data.youtube){
+        this.videoId = this.parseUrl(data.youtube);
+        this.player = new YT.Player('player', {
+          width: 700,
+          height: 500,
+          videoId: this.videoId,
+          events: {
+              'onStateChange': this.onPlayerStateChange.bind(this)
+          }
+        });
+      }
     });
 
     this.socket.on('played', () => {

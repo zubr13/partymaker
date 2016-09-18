@@ -179,11 +179,7 @@ User.find({}).remove()
       name: 'Test',
       email: 'test@example.com',
       password: 'test',
-      friends: [{
-        name: 'Yoba'
-      }, {
-        name: 'Test'
-      }],
+      friends: ['Lucy', 'Admin'],
       videos: [{
         url: 'http://www.youtube.com/embed/sWOXYDBbz0g',
         score: 5,

@@ -1,0 +1,27 @@
+.members-block{
+	border-top: 3px solid $gray;
+	padding: 10px;
+	margin-top: 15px;
+}
+
+#friends-select {
+	display: inline-block;
+	width: 70%;
+}
+
+.add-button{
+	font-size: 18px;
+	margin: 5px;
+	background-color: $gray-blue;
+	border: $gray-light 2px solid;
+	border-radius: 3px;
+	margin-left: 5px;
+	&:hover {
+		color: $black;
+      	background-color: $gray;
+	}
+}
+
+.members-item{
+	border-bottom: 2px solid $gray;
+}

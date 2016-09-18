@@ -10,7 +10,7 @@ chat{
   color: $gray-light;
   padding: 0;
   position: relative;
-  height: 485px;
+  height: 385px;
   overflow: auto;
 
   &::-webkit-scrollbar {
@@ -48,7 +48,7 @@ input{
   color: $gray-light;
   bottom: 15px;
   padding: 5px;
-  width: 100%;
+  width: 70%;
   margin-top: 42px;
 }
 
@@ -60,3 +60,14 @@ input:-webkit-autofill {
   height: auto;
 }
 
+.send-button{
+  font-size: 20px;
+  background-color: $gray-blue;
+  border: $gray-light 2px solid;
+  border-radius: 3px;
+  margin: 5px;
+  &:hover {
+    color: $black;
+        background-color: $gray;
+  }
+}
