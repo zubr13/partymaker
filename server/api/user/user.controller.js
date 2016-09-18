@@ -140,6 +140,15 @@ export function destroy(req, res) {
     .catch(handleError(res));
 }
 
+export function deleteFriend(req, res) {
+  console.log(req.body);
+  return User.findByIdAndUpdate(req.body._id, {$pull: { friends: { id: req.body.friend }}}).exec()
+    .then(function() {
+      res.status(204).end();
+    })
+    .catch(handleError(res));
+}
+
 /**
  * Change a users password
  */

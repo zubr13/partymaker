@@ -5,14 +5,16 @@
 		<h2>Results</h2>
 		<div class="friends" ng-repeat="user in $ctrl.searchResults track by $index">
 		<span id="name">
-			<a ng-href="profile/{{user._id}}">{{user.name}}</a>
-			<button type="button" ng-click="$ctrl.addToFriends(user.name, user._id)">Add to friends</button>
+			<a ng-href="profile/{{user._id}}">{{user.name}} </a>
+			<button ng-if="searchQuery" type="button" ng-click="$ctrl.addToFriends(user.name, user._id)">Add to friends</button>
 		</span>
 	</div>
 	<h2>Friends list</h2>
 	<div class="friends" ng-repeat="friend in $ctrl.friends track by $index">
 		<span id="name">
-			<a ng-href="profile/{{friend._id}}">{{friend.name}}</a>
+			<a ng-href="profile/{{friend._id}}">{{friend.name}} </a>
+			<!--<button type="button" ng-click="$ctrl.deleteFriend(friend._id)">Delete Friend</button>-->
+			<button type="button" ng-click="">Invite</button>
 		</span>
 	</div>
 </div>
