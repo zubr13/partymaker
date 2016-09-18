@@ -1,0 +1,11 @@
+<div class="members-block">
+	<h3>Creator: {{$ctrl.creator}}</h3>
+	<h4>Session members</h4>
+	<select id="friends-select" class="form-control" ng-model="$ctrl.choosedMember">
+	  <option ng-repeat="friend in $ctrl.friends">{{friend}}</option>
+	</select>
+	<button class="add-button" ng-click="$ctrl.addMember()">Add</button>
+	<div class="members-item" ng-repeat="member in $ctrl.members">
+		{{member}}
+	</div>
+</div>

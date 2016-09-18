@@ -4,8 +4,8 @@ import videoPlayer from './../video-player/video-player.component';
 
 export class videoListComponent {
   /*@ngInject*/
-  constructor(videoService, $state, $scope) {
-    this.message = 'World';
+  constructor(videoService, $state, $scope, Auth) {
+    this.Auth = Auth;
     this.sessionNumber = Math.floor(Math.random() * 10);
     this.sharedUrl = '';
     this.videoService = videoService;
@@ -47,8 +47,10 @@ export class videoListComponent {
 
   goToVideo(video){
     this.videoService.currentVideo = video;
-    this.videoService.createSession(video).then((data) => {
-      this.$state.go(`common-watch`, {id: data._id});
+    this.Auth.getCurrentUser().then(user => {
+      this.videoService.createSession(video, user).then((data) => {
+        this.$state.go(`common-watch`, {id: data._id});
+      });
     });
   }
 }

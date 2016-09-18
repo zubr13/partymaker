@@ -8,9 +8,9 @@ export class singleVideoPlayerComponent {
 
     this.socket = socketService.socket;
 
-    $scope.$on('videoLoaded', (event, video) => {
+    $scope.$on('videoLoaded', (event, data) => {
 
-        this.videoId = this.parseUrl(video.youtube);
+        this.videoId = this.parseUrl(data.video.youtube);
         this.player = new YT.Player('player', {
           width: 700,
           height: 500,

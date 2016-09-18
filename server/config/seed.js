@@ -206,7 +206,7 @@ User.find({}).remove()
       name: 'Admin',
       email: 'admin@example.com',
       password: 'admin',
-      friends: ['Admin', 'Test']
+      friends: ['Peter', 'John', 'Test']
     })
     .then(() => {
       console.log('finished populating users');
