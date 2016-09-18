@@ -3,3 +3,22 @@
 body{
   background-color: $black;
 }
+
+.search-input{
+	width: 85%;
+	margin-bottom: 20px;
+}
+
+.search-video-button {
+  background-color: $black;
+  color: $gray-light;
+  margin-left: 20px;
+  font-weight: bold;
+  font-size: 24px;
+  border: 1px solid $gray-dark;
+  outline: 0;
+  &:hover {
+    color: $black;
+    background-color: $gray-light;
+  }
+}

@@ -1,3 +1,7 @@
 <div class="container">
-  <video-list></video-list>
+	<div class=search>
+		<input class="search-input" type="text" ng-model="indexCtrl.searchQuery">
+	  	<button class="search-video-button" ng-click="indexCtrl.searchVideo()">Search</button>
+	</div>
+  	<video-list videos="indexCtrl.videos"></video-list>
 </div>

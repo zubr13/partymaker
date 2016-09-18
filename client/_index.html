@@ -32,6 +32,16 @@
   ga('send', 'pageview');
 </script>
 <script type="text/javascript" src="https://www.youtube.com/iframe_api"></script>
+<script>
+  function onClientLoad() {
+    gapi.client.load('youtube', 'v3', onYouTubeApiLoad);
+  }
+
+  function onYouTubeApiLoad() {
+    gapi.client.setApiKey('AIzaSyAa0D6GJphE09kJTj_YA2hDn2otg0SkErM');
+  }
+</script>
+<script src="https://apis.google.com/js/client.js?onload=onClientLoad" type="text/javascript"></script>
 
 <navbar></navbar>
 <div ui-view=""></div>

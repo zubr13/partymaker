@@ -4,7 +4,7 @@ import videoPlayer from './../video-player/video-player.component';
 
 export class videoListComponent {
   /*@ngInject*/
-  constructor(videoService, $state) {
+  constructor(videoService, $state, $scope) {
     this.message = 'World';
     this.sessionNumber = Math.floor(Math.random() * 10);
     this.sharedUrl = '';
@@ -12,11 +12,28 @@ export class videoListComponent {
     this.videos = [];
     this.$state = $state;
     this.getVideos();
+
+    $scope.$on('videoSearch', (event, videos) => {
+      this.videos = videos;
+      $scope.$apply();
+    });
   }
 
-  shareVideo(url){
-    console.log(url);
-    this.sharedUrl = url;
+  shareVideo(url, video){
+    if(url){
+      this.sharedUrl = url;
+    }
+    else{
+      this.videoService.createVideo(video).then(data => {
+        this.$state.go('video', {id: data._id});
+      });
+    }
+  }
+
+  saveVideo(video){
+    this.videoService.createVideo(video).then(data => {
+      this.$state.go('video', {id: data._id});
+    });
   }
 
   getVideos(){
@@ -38,7 +55,7 @@ export class videoListComponent {
 export default angular.module('video-list', [videoPlayer])
   .component('videoList', {
     template: require('./video-list.component.html'),
-    bindings: { message: '<' },
+    bindings: { message: '<'},
     controller: videoListComponent
   })
   .name;
