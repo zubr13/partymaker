@@ -39,6 +39,11 @@ var UserSchema = new Schema({
   twitter: {},
   google: {},
   github: {},
+  invites: [{
+    session: String,
+    creator: String,
+    video: String
+  }],
   friends: [{
     id: String,
     name: String
