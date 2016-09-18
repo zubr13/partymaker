@@ -24,6 +24,7 @@ export class CommonWatchComponent {
     this.Auth = Auth;
     this.$scope = $scope;
     this.user = {};
+    this.comments = [];
     this.scores = [];
     this.videoService = videoService;
     this.rate = 0;
@@ -43,6 +44,8 @@ export class CommonWatchComponent {
     this.videoService.getSessionById(this.$stateParams.id).then(data => {
       this.$scope.$broadcast('videoLoaded', data);
       this.scores = data.score;
+      this.comments = data.comments;
+      console.log(this.comments);
       this.calculateAverage();
       this.messages = data.chat;
       this.videoName = data.video.name;
