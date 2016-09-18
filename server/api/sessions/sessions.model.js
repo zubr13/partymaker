@@ -10,6 +10,7 @@ var SessionsSchema = new Schema({
   date: { type: Date, default: Date.now },
   members: [String],
   url: String,
+  score: [Number],
   video: {
     name: String,
     youtube: String,
