@@ -3,8 +3,9 @@
 	<div class="friends">
 		<form name="search" target="#here" method="POST">
 			<input type="text" name="searchQuery" ng-model="searchQuery" placeholder="enter user name"/>
-			<input type="submit" name="searchQuery" ng-click="$ctrl.searchFriends(searchQuery)">Search</input>
+			<button type="submit" name="searchQuery" ng-click="$ctrl.searchFriends(searchQuery)">Search</button>
 		</form>
+		<br/>
 		<div class="friends" ng-repeat="user in $ctrl.searchResults track by $index">
 		<span id="name">
 			<a ng-href="profile/{{user._id}}">{{user.name}} </a>
