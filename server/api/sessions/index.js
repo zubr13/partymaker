@@ -14,5 +14,6 @@ router.delete('/:id', controller.destroy);
 router.put('/:id/addmessage', controller.addMessage);
 router.put('/:id/addmember', controller.addMember);
 router.put('/:id/addscore', controller.addScore);
+router.put('/:id/addcomment', controller.addComment);
 
 module.exports = router;

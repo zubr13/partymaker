@@ -11,6 +11,11 @@ var SessionsSchema = new Schema({
   members: [String],
   url: String,
   score: [Number],
+  comments: [{
+    author: { type: String, default: "Anon" },
+    date: { type: Date, default: Date.now },
+    message: String
+  }],
   video: {
     name: String,
     youtube: String,
